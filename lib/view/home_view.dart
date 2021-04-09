@@ -2,10 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:earthsite/widgets/bottomnavigation.dart';
 
-//import 'home_page/home/home_page.dart';
-//import 'home_page/mark/public_mark_page.dart';
-//import 'home_page/profile/profile_page.dart';
-//import 'home_page/project/project_page.dart';
+import 'home_page/dataDisplay/dataDisplay_page.dart';
+import 'home_page/alarm/alarm_page.dart';
+import 'home_page/home/home_page.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -18,14 +17,15 @@ class _HomeViewState extends State<HomeView> {
   int _currentIndex = 0;
   var _body;
 
-  /*@override
+  @override
   void initState() {
     list
       ..add(HomePage())
-      ..add(AlarmPage())
-      ..add(DataDisplayPage());
+      ..add(DataDisplayPage())
+      ..add(AlarmPage());
+
     super.initState(); //无名无参需要调用
-  }*/
+  }
 
   onTap(index) {
     _currentIndex = index;
