@@ -10,40 +10,12 @@ void main() {
 
 class OscWidget extends StatefulWidget {
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   @override
   _OscWidgetState createState() => _OscWidgetState();
 }
 
 class _OscWidgetState extends State<OscWidget> {
 
-  /*Color themeColor = ThemeUtils.currentColorTheme;
-
-  @override
-  void initState() {
-    super.initState();
-    DataUtils.getColorThemeIndex().then((index) {
-      print('color theme index = $index');
-      if (index != null) {
-        ThemeUtils.currentColorTheme = ThemeUtils.supportColors[index];
-        eventBus.fire(ChangeThemeEvent(ThemeUtils.supportColors[index]));
-      }
-    });
-    eventBus.on<ChangeThemeEvent>().listen((event) {
-      setState(() {
-        themeColor = event.color;
-      });
-    });
-  }
-*/
   @override
   Widget build(BuildContext context) {
     return // 全局配置子树下的SmartRefresher,下面列举几个特别重要的属性
