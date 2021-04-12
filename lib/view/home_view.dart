@@ -12,7 +12,7 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  //final appBarTitles = ['首页', '项目', '公众号', '我的'];
+
   List<Widget> list = List();
   int _currentIndex = 0;
   var _body;

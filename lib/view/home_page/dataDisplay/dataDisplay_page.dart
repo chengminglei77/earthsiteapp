@@ -52,13 +52,13 @@ class _DataDisplayPageState extends State<DataDisplayPage> {
                 padding: EdgeInsets.all(20.0),
                 color: Colors.blueGrey ,
                 child:  FlatButton(
-                  child: Text("风速传感器"),
+                  child: Text("湿度传感器"),
                   textColor: Colors.blue,
                   onPressed: () {
                     //导航到新路由
                     Navigator.push( context,
                         MaterialPageRoute(builder: (context) {
-                          return HumidityPage();
+                          return HumidityPage(1);
                         }));
                   },
                 ),
