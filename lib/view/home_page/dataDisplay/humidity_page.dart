@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:earthsite/bean/classify_humidity_entity.dart';
 import 'package:earthsite/view/home_page/dataDisplay/humidity_list_page.dart';
 
 class HumidityPage extends StatefulWidget {
