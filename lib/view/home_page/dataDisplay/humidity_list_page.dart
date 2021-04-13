@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:earthsite/utils/net_utils.dart';
-import 'package:earthsite/constants/constants.dart';
+
 
 class HumidityListPage extends StatefulWidget {
   const HumidityListPage(this.type);
