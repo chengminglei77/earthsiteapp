@@ -30,9 +30,9 @@ class _HumidityListPageState extends State<HumidityListPage>
     return SingleChildScrollView(
       child: Column(
         children: [
-          ChartWidget(),
-          ChartWidget(),
-          ChartWidget(),
+          ChartWidget(false),
+          ChartWidget(false),
+          ChartWidget(false),
         ],
       ),
     );

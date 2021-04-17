@@ -1,13 +1,11 @@
 import 'dart:convert';
 
-import 'package:earthsite/view/home_page/dataDisplay/humidity_list_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:earthsite/view/home_page/dataDisplay/windSpeed_page.dart';
-import 'package:earthsite/view/home_page/dataDisplay/humidity_page.dart';
-import 'package:earthsite/view/home_page/dataDisplay/display_chart_page.dart';
+import 'package:earthsite/widgets/chart_widget.dart';
+
 
 class DataDisplayPage extends StatefulWidget {
   @override
@@ -24,56 +22,8 @@ class _DataDisplayPageState extends State<DataDisplayPage> {
       ),
       body:Column(
         children: [
-          Column(
-            children: [
-              Container(
-                constraints: BoxConstraints.tightFor(width:double.infinity,height: 30),
-                //padding: EdgeInsets.all(20.0),
-                child: FlatButton(
-                  child: Text("风速传感器"),
-                  textColor: Colors.blue,
-                  color: Colors.indigo,
-                  onPressed: () {
-                    //导航到新路由
-                    Navigator.push( context,
-                        MaterialPageRoute(builder: (context) {
-                          return WindSpeedPage();
-                        }));
-                  },
-                ),
-              ),
-              Container(
-                constraints: BoxConstraints.tightFor(width:double.infinity,height: 250),
-                padding: EdgeInsets.all(20.0),
-                child: Text("风速传感器数据"),
-              )
-            ],
-          ),
-          Column(
-            children: [
-              Container(
-                constraints: BoxConstraints.tightFor(width:double.infinity,height: 30),
-               // padding: EdgeInsets.all(20.0),
-                child:  FlatButton(
-                  child: Text("湿度传感器"),
-                  textColor: Colors.blue,
-                  color: Colors.indigo,
-                  onPressed: () {
-                    //导航到新路由
-                    Navigator.push( context,
-                        MaterialPageRoute(builder: (context) {
-                          return HumidityPage(1);
-                        }));
-                  },
-                ),
-              ),
-              Container(
-                constraints: BoxConstraints.tightFor(width:double.infinity,height: 250),
-                padding: EdgeInsets.all(20.0),
-                child: DisplayChart.withRandomData(),
-              )
-            ],
-          )
+          ChartWidget(true),
+          ChartWidget(true),
         ],
       ) ,
     );
