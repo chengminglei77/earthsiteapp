@@ -1,4 +1,4 @@
-import 'package:earthsite/utils/chart_widget.dart';
+import 'package:earthsite/widgets/chart_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
