@@ -65,16 +65,15 @@ class DisplayChart extends StatelessWidget {
     ];
 
     // Generate 2 shades of each color so that we can style the line segments.
-    final blue = charts.MaterialPalette.blue.makeShades(2);
-    final red = charts.MaterialPalette.red.makeShades(2);
-    final green = charts.MaterialPalette.green.makeShades(2);
+    final blue = charts.MaterialPalette.blue.makeShades(1);
+    final red = charts.MaterialPalette.red.makeShades(1);
+    final green = charts.MaterialPalette.green.makeShades(1);
 
     return [
       new charts.Series<SensorsData, int>(
         id: 'Color Change',
         // Light shade for even years, dark shade for odd.
-        colorFn: (SensorsData y, _) =>
-        y.x % 2 == 0 ? blue[1] : blue[0],
+        colorFn: (SensorsData y, _) => blue[0],
         domainFn: (SensorsData y, _) => y.x,
         measureFn: (SensorsData y, _) => y.y,
         data: Humidity1,
@@ -82,8 +81,7 @@ class DisplayChart extends StatelessWidget {
       new charts.Series<SensorsData, int>(
         id: 'Dash Pattern Change',
         // Light shade for even years, dark shade for odd.
-        colorFn: (SensorsData y, _) =>
-        y.x % 2 == 0 ? red[1] : red[0],
+        colorFn: (SensorsData y, _) => red[0],
         domainFn: (SensorsData y, _) => y.x,
         measureFn: (SensorsData y, _) => y.y,
         data: Humidity2,
@@ -91,8 +89,7 @@ class DisplayChart extends StatelessWidget {
       new charts.Series<SensorsData, int>(
         id: 'Stroke Width Change',
         // Light shade for even years, dark shade for odd.
-        colorFn: (SensorsData y, _) =>
-        y.x % 2 == 0 ? green[1] : green[0],
+        colorFn: (SensorsData y, _) => green[0],
         domainFn: (SensorsData y, _) => y.x,
         measureFn: (SensorsData y, _) => y.y,
         data: Humidity3,

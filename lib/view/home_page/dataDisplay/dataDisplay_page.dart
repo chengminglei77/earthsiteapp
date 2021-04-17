@@ -20,18 +20,19 @@ class _DataDisplayPageState extends State<DataDisplayPage> {
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text("数据总览",style: TextStyle(color: Colors.black),),
+        title: Text("数据总览",style: TextStyle(color: Colors.black)),
       ),
       body:Column(
         children: [
           Column(
             children: [
               Container(
-                padding: EdgeInsets.all(20.0),
-                color: Colors.blueGrey ,
+                constraints: BoxConstraints.tightFor(width:double.infinity,height: 30),
+                //padding: EdgeInsets.all(20.0),
                 child: FlatButton(
                   child: Text("风速传感器"),
                   textColor: Colors.blue,
+                  color: Colors.indigo,
                   onPressed: () {
                     //导航到新路由
                     Navigator.push( context,
@@ -42,8 +43,8 @@ class _DataDisplayPageState extends State<DataDisplayPage> {
                 ),
               ),
               Container(
+                constraints: BoxConstraints.tightFor(width:double.infinity,height: 250),
                 padding: EdgeInsets.all(20.0),
-                color: Colors.blueGrey ,
                 child: Text("风速传感器数据"),
               )
             ],
@@ -51,11 +52,12 @@ class _DataDisplayPageState extends State<DataDisplayPage> {
           Column(
             children: [
               Container(
-                padding: EdgeInsets.all(20.0),
-                color: Colors.blueGrey ,
+                constraints: BoxConstraints.tightFor(width:double.infinity,height: 30),
+               // padding: EdgeInsets.all(20.0),
                 child:  FlatButton(
                   child: Text("湿度传感器"),
                   textColor: Colors.blue,
+                  color: Colors.indigo,
                   onPressed: () {
                     //导航到新路由
                     Navigator.push( context,
@@ -66,9 +68,8 @@ class _DataDisplayPageState extends State<DataDisplayPage> {
                 ),
               ),
               Container(
-                constraints: BoxConstraints.tightFor(width: 500,height: 250),
+                constraints: BoxConstraints.tightFor(width:double.infinity,height: 250),
                 padding: EdgeInsets.all(20.0),
-                color: Colors.blueGrey ,
                 child: DisplayChart.withRandomData(),
               )
             ],

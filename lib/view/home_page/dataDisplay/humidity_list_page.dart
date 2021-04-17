@@ -100,16 +100,15 @@ class SegmentsLineChart extends StatelessWidget {
       new SensorsData(30, random.nextInt(100)),
     ];
 
-    final blue = charts.MaterialPalette.blue.makeShades(2);
+    final blue = charts.MaterialPalette.blue.makeShades(1);
 
     return [
       new charts.Series<SensorsData, int>(
         id: 'Color Change',
         // Light shade for even years, dark shade for odd.
-        colorFn: (SensorsData x, _) => x.y % 2 == 0 ? blue[1] : blue[0],
-
-        domainFn: (SensorsData sales, _) => sales.x,
-        measureFn: (SensorsData sales, _) => sales.y,
+        colorFn: (SensorsData x, _) => blue[0],
+        domainFn: (SensorsData y, _) => y.x,
+        measureFn: (SensorsData y, _) => y.y,
         data: colorChangeData,
       ),
     ];
