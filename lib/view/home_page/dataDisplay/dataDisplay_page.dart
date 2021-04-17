@@ -1,11 +1,13 @@
 import 'dart:convert';
 
+import 'package:earthsite/view/home_page/dataDisplay/humidity_list_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:earthsite/view/home_page/dataDisplay/windSpeed_page.dart';
 import 'package:earthsite/view/home_page/dataDisplay/humidity_page.dart';
+import 'package:earthsite/view/home_page/dataDisplay/display_chart_page.dart';
 
 class DataDisplayPage extends StatefulWidget {
   @override
@@ -64,9 +66,10 @@ class _DataDisplayPageState extends State<DataDisplayPage> {
                 ),
               ),
               Container(
+                constraints: BoxConstraints.tightFor(width: 500,height: 250),
                 padding: EdgeInsets.all(20.0),
                 color: Colors.blueGrey ,
-                child: Text("湿度传感器数据"),
+                child: DisplayChart.withRandomData(),
               )
             ],
           )
