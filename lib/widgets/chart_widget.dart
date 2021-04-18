@@ -5,8 +5,10 @@ import 'package:earthsite/view/home_page/dataDisplay/humidity_list_page.dart';
 import 'package:earthsite/view/home_page/dataDisplay/humidity_page.dart';
 import 'package:earthsite/view/home_page/dataDisplay/display_chart_page.dart';
 
+///所有标题＋表格的模板组件封装
 class ChartWidget extends StatelessWidget {
   bool isButton;
+
   ChartWidget(@required this.isButton);
 
   String chartTitle = "5cm";
@@ -37,7 +39,9 @@ class ChartWidget extends StatelessWidget {
                     style: TextStyle(color: Colors.blue, fontSize: 20))),
         Container(
           constraints: BoxConstraints.tightFor(width: 500, height: 250),
-          child: isButton?DisplayChart.withRandomData():SegmentsLineChart.withRandomData(),
+          child: isButton
+              ? DisplayChart.withRandomData()
+              : SegmentsLineChart.withRandomData(),
         )
       ],
     );

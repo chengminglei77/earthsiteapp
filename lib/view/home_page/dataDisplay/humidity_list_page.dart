@@ -7,6 +7,7 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:earthsite/utils/net_utils.dart';
 
+///湿度传感器详细展示页面的表格及其数据
 class HumidityListPage extends StatefulWidget {
   const HumidityListPage(this.type);
 

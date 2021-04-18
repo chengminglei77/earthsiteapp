@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:earthsite/view/home_page/dataDisplay/humidity_list_page.dart';
 
+///湿度传感器详细展示页面的切换效果
 class HumidityPage extends StatefulWidget {
   int current; //控制当前tab索引
   HumidityPage(this.current);

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
+///风速传感器详细展示页面
 class WindSpeedPage extends StatefulWidget {
   @override
   _WindSpeedPageState createState() => _WindSpeedPageState();

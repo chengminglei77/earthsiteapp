@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:earthsite/widgets/chart_widget.dart';
 
-
+///数据总览页面布局
 class DataDisplayPage extends StatefulWidget {
   @override
   _DataDisplayPageState createState() => _DataDisplayPageState();
