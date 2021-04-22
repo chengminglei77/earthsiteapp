@@ -1,118 +1,62 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:charts_flutter/flutter.dart';
+
 import 'package:flutter/material.dart';
 
 ///数据总览的表格及其数据
-class DisplayChart extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+class DisplayChart extends StatefulWidget {
+  @override
+  _DisplayChart createState() => _DisplayChart();
+}
 
-  DisplayChart(this.seriesList, {this.animate});
+class _DisplayChart extends State<DisplayChart> {
+  List<charts.Series> seriesList;
+  bool animate;
+  int num = 1;
 
   /// Creates a [LineChart] with sample data and no transition.
-  factory DisplayChart.withSampleData() {
-    return new DisplayChart(
-      _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
-    );
+  @override
+  void initState() {
+    super.initState();
+    this.animate = false;
+    seriesList = _createRandomData(num);
+    _initTimer();
   }
 
-  // EXCLUDE_FROM_GALLERY_DOCS_START
-  // This section is excluded from being copied to the gallery.
-  // It is used for creating random series data to demonstrate animation in
-  // the example app only.
-  factory DisplayChart.withRandomData() {
-    return new DisplayChart(_createRandomData());
+  ///定时器
+  Timer _timer;
+
+  ///定时器 - 1分钟
+  void _initTimer() {
+    if (_timer == null) {
+      _timer = Timer.periodic(Duration(seconds: 3), (timer) {
+        setState(() {
+          num++;
+          seriesList = _createRandomData(num);
+          if (num > 24) {
+            _timer.cancel();
+          }
+        });
+      });
+    }
   }
 
   /// Create random data.
-  static List<charts.Series<SensorsData, int>> _createRandomData() {
-    final random = new Random();
+  static List<charts.Series<SensorsData, int>> _createRandomData(int n) {
+    print(n);
+    Random random = new Random();
 
-    // Series of data with static dash pattern and stroke width. The colorFn
-    // accessor will colorize each datum (for all three series).
-    final Humidity1 = [
-      new SensorsData(0, random.nextInt(100)),
-      new SensorsData(1, random.nextInt(100)),
-      new SensorsData(2, random.nextInt(100)),
-      new SensorsData(3, random.nextInt(100)),
-      new SensorsData(4, random.nextInt(100)),
-      new SensorsData(5, random.nextInt(100)),
-      new SensorsData(6, random.nextInt(100)),
-      new SensorsData(7, random.nextInt(100)),
-      new SensorsData(8, random.nextInt(100)),
-      new SensorsData(9, random.nextInt(100)),
-      new SensorsData(10, random.nextInt(100)),
-      new SensorsData(12, random.nextInt(100)),
-      new SensorsData(13, random.nextInt(100)),
-      new SensorsData(14, random.nextInt(100)),
-      new SensorsData(15, random.nextInt(100)),
-      new SensorsData(16, random.nextInt(100)),
-      new SensorsData(17, random.nextInt(100)),
-      new SensorsData(18, random.nextInt(100)),
-      new SensorsData(19, random.nextInt(100)),
-      new SensorsData(20, random.nextInt(100)),
-      new SensorsData(21, random.nextInt(100)),
-      new SensorsData(22, random.nextInt(100)),
-      new SensorsData(23, random.nextInt(100)),
-    ];
-
-    // Series of data with changing color and dash pattern.
-    final Humidity2 = [
-      new SensorsData(0, random.nextInt(100)),
-      new SensorsData(1, random.nextInt(100)),
-      new SensorsData(2, random.nextInt(100)),
-      new SensorsData(3, random.nextInt(100)),
-      new SensorsData(4, random.nextInt(100)),
-      new SensorsData(5, random.nextInt(100)),
-      new SensorsData(6, random.nextInt(100)),
-      new SensorsData(7, random.nextInt(100)),
-      new SensorsData(8, random.nextInt(100)),
-      new SensorsData(9, random.nextInt(100)),
-      new SensorsData(10, random.nextInt(100)),
-      new SensorsData(12, random.nextInt(100)),
-      new SensorsData(13, random.nextInt(100)),
-      new SensorsData(14, random.nextInt(100)),
-      new SensorsData(15, random.nextInt(100)),
-      new SensorsData(16, random.nextInt(100)),
-      new SensorsData(17, random.nextInt(100)),
-      new SensorsData(18, random.nextInt(100)),
-      new SensorsData(19, random.nextInt(100)),
-      new SensorsData(20, random.nextInt(100)),
-      new SensorsData(21, random.nextInt(100)),
-      new SensorsData(22, random.nextInt(100)),
-      new SensorsData(23, random.nextInt(100)),
-    ];
-
-    // Series of data with changing color and stroke width.
-    final Humidity3 = [
-      new SensorsData(0, random.nextInt(100)),
-      new SensorsData(1, random.nextInt(100)),
-      new SensorsData(2, random.nextInt(100)),
-      new SensorsData(3, random.nextInt(100)),
-      new SensorsData(4, random.nextInt(100)),
-      new SensorsData(5, random.nextInt(100)),
-      new SensorsData(6, random.nextInt(100)),
-      new SensorsData(7, random.nextInt(100)),
-      new SensorsData(8, random.nextInt(100)),
-      new SensorsData(9, random.nextInt(100)),
-      new SensorsData(10, random.nextInt(100)),
-      new SensorsData(12, random.nextInt(100)),
-      new SensorsData(13, random.nextInt(100)),
-      new SensorsData(14, random.nextInt(100)),
-      new SensorsData(15, random.nextInt(100)),
-      new SensorsData(16, random.nextInt(100)),
-      new SensorsData(17, random.nextInt(100)),
-      new SensorsData(18, random.nextInt(100)),
-      new SensorsData(19, random.nextInt(100)),
-      new SensorsData(20, random.nextInt(100)),
-      new SensorsData(21, random.nextInt(100)),
-      new SensorsData(22, random.nextInt(100)),
-      new SensorsData(23, random.nextInt(100)),
-    ];
+    List<SensorsData> Humidity1 = new List<SensorsData>();
+    List<SensorsData> Humidity2 = new List<SensorsData>();
+    List<SensorsData> Humidity3 = new List<SensorsData>();
+    for (int i = 0; i < n && n < 24; i++) {
+      Humidity1.add(new SensorsData(i, random.nextInt(100)));
+      Humidity2.add(new SensorsData(i, random.nextInt(100)));
+      Humidity3.add(new SensorsData(i, random.nextInt(100)));
+    }
+    print(Humidity1.length);
 
     // Generate 2 shades of each color so that we can style the line segments.
     final blue = charts.MaterialPalette.blue.makeShades(1);
@@ -121,7 +65,7 @@ class DisplayChart extends StatelessWidget {
 
     return [
       new charts.Series<SensorsData, int>(
-        id: 'Color Change',
+        id: ' Humidity1',
         // Light shade for even years, dark shade for odd.
         colorFn: (SensorsData y, _) => blue[0],
         domainFn: (SensorsData y, _) => y.time,
@@ -129,7 +73,7 @@ class DisplayChart extends StatelessWidget {
         data: Humidity1,
       ),
       new charts.Series<SensorsData, int>(
-        id: 'Dash Pattern Change',
+        id: ' Humidity2',
         // Light shade for even years, dark shade for odd.
         colorFn: (SensorsData y, _) => red[0],
         domainFn: (SensorsData y, _) => y.time,
@@ -137,7 +81,7 @@ class DisplayChart extends StatelessWidget {
         data: Humidity2,
       ),
       new charts.Series<SensorsData, int>(
-        id: 'Stroke Width Change',
+        id: ' Humidity3',
         // Light shade for even years, dark shade for odd.
         colorFn: (SensorsData y, _) => green[0],
         domainFn: (SensorsData y, _) => y.time,
@@ -154,20 +98,18 @@ class DisplayChart extends StatelessWidget {
     final staticTicks = <charts.TickSpec<int>>[
       new charts.TickSpec(
         // Value must match the domain value.
-          0,
-          // Optional label for this tick, defaults to domain value if not set.
-          label: '01:00',
-          // The styling for this tick.
-          style: new charts.TextStyleSpec(
-              color: new charts.Color(r: 0x4C, g: 0xAF, b: 0x50))),
+        0,
+        // Optional label for this tick, defaults to domain value if not set.
+        label: '00:00',
+      ),
       // If no text style is specified - the style from renderSpec will be used
       // if one is specified.
-      new charts.TickSpec(6,label: '06:00'),
-      new charts.TickSpec(12,label: '12:00'),
-      new charts.TickSpec(18,label: '18:00'),
-      new charts.TickSpec(23,label: '23:00'),
+      new charts.TickSpec(6, label: '06:00'),
+      new charts.TickSpec(12, label: '12:00'),
+      new charts.TickSpec(18, label: '18:00'),
+      new charts.TickSpec(23, label: '23:00'),
     ];
-    
+
     return new charts.LineChart(seriesList,
         defaultRenderer: new charts.LineRendererConfig(),
         customSeriesRenderers: [
@@ -175,7 +117,7 @@ class DisplayChart extends StatelessWidget {
         ],
         domainAxis: new charts.NumericAxisSpec(
             tickProviderSpec:
-            new charts.StaticNumericTickProviderSpec(staticTicks)),
+                new charts.StaticNumericTickProviderSpec(staticTicks)),
         animate: animate);
   }
 
