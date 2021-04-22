@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:earthsite/widgets/bottomnavigation.dart';
 
-import 'home_page/dataDisplay/dataDisplay_page.dart';
-import 'home_page/alarm/alarm_page.dart';
-import 'home_page/home/home_page.dart';
+import '../../dataDisplay/dataDisplay_page.dart';
+import '../../alarm/alarm_page.dart';
+import '../../home_page.dart';
 
 class HomeView extends StatefulWidget {
   @override

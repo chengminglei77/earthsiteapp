@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-
-import 'view/home_view.dart';
+import 'view/home_page/home_page.dart';
+import 'view/home_page/home/components/home_view.dart';
 
 void main() {
   runApp(OscWidget());
@@ -49,7 +49,7 @@ class _OscWidgetState extends State<OscWidget> {
               platform: TargetPlatform.iOS, //右滑返回
             ),
             title: '土遗址',
-            home: HomeView(),
+            home: HomePage(),
           ));
   }
 }
