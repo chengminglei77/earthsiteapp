@@ -52,6 +52,16 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/tabbar/home.png
+    - assets/images/tabbar/subject.png
+    - assets/images/tabbar/mall.png
+    - assets/images/tabbar/group.png
+    - assets/images/tabbar/profile.png
+    - assets/images/tabbar/group_active.png
+    - assets/images/tabbar/home_active.png
+    - assets/images/tabbar/subject_active.png
+    - assets/images/tabbar/mall_active.png
+    - assets/images/tabbar/profile_active.png
     - assets/images/home/wish.png
 #    - images/a_dot_burr.jpeg
 
