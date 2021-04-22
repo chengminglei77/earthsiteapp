@@ -40,7 +40,7 @@ class ChartWidget extends StatelessWidget {
         Container(
           constraints: BoxConstraints.tightFor(width: 500, height: 250),
           child: isButton
-              ? DisplayChart.withRandomData()
+              ? new DisplayChart()
               : SegmentsLineChart.withRandomData(),
         )
       ],
