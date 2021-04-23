@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'home/components/dash_line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'home/components/home_scattergram.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -27,12 +28,12 @@ class _HomePageState extends State<HomePage> {
                 getEastWidget(),
                 SizedBox(height: 2),
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(14.9),
                   color: Colors.grey ,
                   width: double.infinity,
                   child: Container(
                     width: 184,
-                    height: 154,
+                    height: 184,
                     color: Colors.white,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,8 +44,8 @@ class _HomePageState extends State<HomePage> {
 //                        getDTUWidget(),
 //                        getSensorWidget(),
 //                        getNetWidget(),
-                        getDashedWidget(),
-                        getContentWish(),
+//                        getDashedWidget(),
+//                        getContentWish(),
                   ],
                     ),
                   ),
@@ -58,14 +59,26 @@ class _HomePageState extends State<HomePage> {
                 getWestWidget(),
                 SizedBox(height: 2),
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(14.9),
                   color: Colors.grey ,
                   width: double.infinity,
                   child: Container(
                     width: 184,
-                    height: 154,
+                    height: 184,
                     color: Colors.white,
-                    child: Text("西",style: TextStyle(fontSize: 20,color: Colors.white),),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+//                        getOriginWidget(),
+                        getContentWidget(),
+
+//                        getDTUWidget(),
+//                        getSensorWidget(),
+//                        getNetWidget(),
+//                        getDashedWidget(),
+//                        getContentWish(),
+                      ],
+                    ),
                   ),
                 )
               ],
@@ -77,14 +90,26 @@ class _HomePageState extends State<HomePage> {
                 getSouthWidget(),
                 SizedBox(height: 2),
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(14.9),
                   color: Colors.grey ,
                   width: double.infinity,
                   child: Container(
                     width: 184,
-                    height: 154,
+                    height: 184,
                     color: Colors.white,
-                    child: Text("南",style: TextStyle(fontSize: 20,color: Colors.white),),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+//                        getOriginWidget(),
+                        getContentWidget(),
+
+//                        getDTUWidget(),
+//                        getSensorWidget(),
+//                        getNetWidget(),
+//                        getDashedWidget(),
+//                        getContentWish(),
+                      ],
+                    ),
                   ),
                 )
               ],
@@ -97,14 +122,26 @@ class _HomePageState extends State<HomePage> {
                 getNorthWidget(),
                 SizedBox(height: 2),
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(14.9),
                   color: Colors.grey ,
                   width: double.infinity,
                   child: Container(
                     width: 184,
-                    height: 154,
+                    height: 184,
                     color: Colors.white,
-                    child: Text("北",style: TextStyle(fontSize: 20,color: Colors.white),),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+//                        getOriginWidget(),
+                        getContentWidget(),
+
+//                        getDTUWidget(),
+//                        getSensorWidget(),
+//                        getNetWidget(),
+//                        getDashedWidget(),
+//                        getContentWish(),
+                      ],
+                    ),
                   ),
                 )
               ],
@@ -207,17 +244,18 @@ class _HomePageState extends State<HomePage> {
   }
   Widget getContentWidget(){
     return Container(
-      width: 350,
-      padding: EdgeInsets.symmetric(horizontal: 18),
+      width: 420,
+//      padding: EdgeInsets.symmetric(horizontal: 18),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 12),
-          getDTUWidget(),
-          SizedBox(height: 10),
-          getSensorWidget(),
-          SizedBox(height: 10),
-          getNetWidget(),
+//          SizedBox(height: 12),
+          ScatterGram(),
+//          getDTUWidget(),
+//          SizedBox(height: 10),
+//          getSensorWidget(),
+//          SizedBox(height: 10),
+//          getNetWidget(),
 
         ],
       ),
