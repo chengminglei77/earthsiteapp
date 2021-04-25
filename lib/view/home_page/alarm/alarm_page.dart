@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:earthsite/widgets/alarm_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,8 +13,16 @@ class AlarmPage extends StatefulWidget {
 class _AlarmPageState extends State<AlarmPage> {
   @override
   Widget build(BuildContext context){
-    return Column(
-
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("报警信息",style: TextStyle(color: Colors.black)),
+      ),
+      body:Column(
+        children: [
+          AlarmCard(),
+          AlarmCard(),
+        ],
+      ) ,
     );
   }
 }

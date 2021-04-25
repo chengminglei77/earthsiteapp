@@ -96,14 +96,7 @@ class _DisplayChart extends State<DisplayChart> {
   @override
   Widget build(BuildContext context) {
     final staticTicks = <charts.TickSpec<int>>[
-      new charts.TickSpec(
-        // Value must match the domain value.
-        0,
-        // Optional label for this tick, defaults to domain value if not set.
-        label: '00:00',
-      ),
-      // If no text style is specified - the style from renderSpec will be used
-      // if one is specified.
+      new charts.TickSpec(0, label: '00:00'),
       new charts.TickSpec(6, label: '06:00'),
       new charts.TickSpec(12, label: '12:00'),
       new charts.TickSpec(18, label: '18:00'),
@@ -119,75 +112,6 @@ class _DisplayChart extends State<DisplayChart> {
             tickProviderSpec:
                 new charts.StaticNumericTickProviderSpec(staticTicks)),
         animate: animate);
-  }
-
-  /// Create one series with sample hard coded data.
-  static List<charts.Series<SensorsData, int>> _createSampleData() {
-    // Series of data with static dash pattern and stroke width. The colorFn
-    // accessor will colorize each datum (for all three series).
-    final Humidity1 = [
-      new SensorsData(0, 5),
-      new SensorsData(1, 15),
-      new SensorsData(2, 25),
-      new SensorsData(3, 75),
-      new SensorsData(4, 100),
-      new SensorsData(5, 90),
-      new SensorsData(6, 75),
-    ];
-
-    // Series of data with changing color and dash pattern.
-    final Humidity2 = [
-      new SensorsData(0, 20),
-      new SensorsData(1, 30),
-      new SensorsData(2, 25),
-      new SensorsData(3, 75),
-      new SensorsData(4, 75),
-      new SensorsData(5, 100),
-      new SensorsData(6, 35),
-    ];
-
-    // Series of data with changing color and stroke width.
-    final Humidity3 = [
-      new SensorsData(0, 5),
-      new SensorsData(1, 25),
-      new SensorsData(2, 30),
-      new SensorsData(3, 30),
-      new SensorsData(4, 75),
-      new SensorsData(5, 100),
-      new SensorsData(6, 90),
-    ];
-
-    // Generate 2 shades of each color so that we can style the line segments.
-//    final blue = charts.MaterialPalette.blue.makeShades(2);
-//    final red = charts.MaterialPalette.red.makeShades(2);
-//    final green = charts.MaterialPalette.green.makeShades(2);
-
-    return [
-      new charts.Series<SensorsData, int>(
-        id: 'Color Change',
-        // Light shade for even years, dark shade for odd.
-        colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
-        domainFn: (SensorsData y, _) => y.time,
-        measureFn: (SensorsData y, _) => y.y,
-        data: Humidity1,
-      ),
-      new charts.Series<SensorsData, int>(
-        id: 'Dash Pattern Change',
-        // Light shade for even years, dark shade for odd.
-        colorFn: (_, __) => charts.MaterialPalette.red.shadeDefault,
-        domainFn: (SensorsData y, _) => y.time,
-        measureFn: (SensorsData y, _) => y.y,
-        data: Humidity2,
-      ),
-      new charts.Series<SensorsData, int>(
-        id: 'Stroke Width Change',
-        // Light shade for even years, dark shade for odd.
-        colorFn: (_, __) => charts.MaterialPalette.green.shadeDefault,
-        domainFn: (SensorsData y, _) => y.time,
-        measureFn: (SensorsData y, _) => y.y,
-        data: Humidity3,
-      )..setAttribute(charts.rendererIdKey, 'customPoint'),
-    ];
   }
 }
 
