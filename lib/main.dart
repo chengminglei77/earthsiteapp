@@ -65,7 +65,7 @@ class MyApp extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      title: "豆瓣App",
+      title: "土遗址",
       theme: ThemeData(
           primaryColor: Colors.green,//统一修改颜色
           highlightColor: Colors.transparent,//去掉高亮效果

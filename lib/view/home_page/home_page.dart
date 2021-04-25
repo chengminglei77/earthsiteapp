@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
 
       appBar: AppBar(
         title: Text("首页",style: TextStyle(color: Colors.black),),
+        centerTitle: true, // 标题居中
       ),
       body:new SingleChildScrollView(
         child: Column(
