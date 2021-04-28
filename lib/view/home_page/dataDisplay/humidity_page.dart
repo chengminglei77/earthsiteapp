@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:earthsite/view/home_page/dataDisplay/humidity_list_page.dart';
+import 'package:earthsite/view/home_page/dataDisplay/humidity_chart_page.dart';
 
 ///湿度传感器详细展示页面的切换效果
 class HumidityPage extends StatefulWidget {
@@ -74,7 +74,7 @@ class _HumidityPageState extends State<HumidityPage>
 //                  left: duSetWidth(25),
 //                  right: duSetWidth(25),
                 ),
-                child: HumidityListPage(h.type),
+                child: HumidityChartPage(h.type),
               ),
             );
           }).toList(),

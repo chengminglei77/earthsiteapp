@@ -8,20 +8,19 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:earthsite/utils/net_utils.dart';
 
 ///湿度传感器详细展示页面的表格及其数据
-class HumidityListPage extends StatefulWidget {
-  const HumidityListPage(this.type);
-
+class HumidityChartPage extends StatefulWidget {
+  const HumidityChartPage(this.type);
   final int type;
 
   @override
-  _HumidityListPageState createState() => _HumidityListPageState(0);
+  _HumidityChartPageState createState() => _HumidityChartPageState(0);
 }
 
-class _HumidityListPageState extends State<HumidityListPage>
+class _HumidityChartPageState extends State<HumidityChartPage>
     with SingleTickerProviderStateMixin {
   int type;
 
-  _HumidityListPageState(this.type);
+  _HumidityChartPageState(this.type);
 
   RefreshController _refreshController =
       RefreshController(initialRefresh: false);
@@ -31,9 +30,9 @@ class _HumidityListPageState extends State<HumidityListPage>
     return SingleChildScrollView(
       child: Column(
         children: [
-          ChartWidget(false),
-          ChartWidget(false),
-          ChartWidget(false),
+          ChartWidget(false,'5cm'),
+          ChartWidget(false,'10cm'),
+          ChartWidget(false,'15cm'),
         ],
       ),
     );
@@ -60,7 +59,7 @@ class SegmentsLineChart extends StatelessWidget {
     );
   }
 
-  factory SegmentsLineChart.withRandomData() {
+  factory SegmentsLineChart.humidityRandomData() {
     return new SegmentsLineChart(_humidityRandomData());
   }
 

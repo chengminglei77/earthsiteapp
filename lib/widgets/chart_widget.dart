@@ -1,18 +1,48 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:earthsite/view/home_page/dataDisplay/humidity_list_page.dart';
+import 'package:earthsite/view/home_page/dataDisplay/humidity_chart_page.dart';
 import 'package:earthsite/view/home_page/dataDisplay/humidity_page.dart';
 import 'package:earthsite/view/home_page/dataDisplay/display_chart_page.dart';
+import 'package:earthsite/view/home_page/dataDisplay/windSpeed_Chart_page.dart';
+import 'package:earthsite/view/home_page/dataDisplay/windSpeed_page.dart';
 
 ///所有标题＋表格的模板组件封装
-class ChartWidget extends StatelessWidget {
+class ChartWidget extends StatefulWidget {
   bool isButton;
+  String Title;
 
-  ChartWidget(@required this.isButton);
+  ChartWidget(
+    @required this.isButton,
+    @required this.Title,
+  );
 
-  String chartTitle = "5cm";
-  String buttonTitle = "湿度传感器";
+  @override
+  _ChartWidgetState createState() => _ChartWidgetState(isButton, Title);
+}
+
+class _ChartWidgetState extends State<ChartWidget> {
+  bool isButton;
+  String Title;
+
+  _ChartWidgetState(
+    @required this.isButton,
+    @required this.Title,
+  );
+
+  void Page() {
+    if (Title == "湿度传感器") {
+      //导航到新路由
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return HumidityPage(1);
+      }));
+    } else {
+      //导航到新路由
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return WindSpeedPage();
+      }));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,26 +53,19 @@ class ChartWidget extends StatelessWidget {
                 BoxConstraints.tightFor(width: double.infinity, height: 50),
             child: isButton
                 ? FlatButton(
-                    child: Text(buttonTitle),
+                    child: Text(Title),
                     textColor: Colors.blue,
                     color: Colors.indigo,
                     onPressed: () {
-                      //导航到新路由
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return HumidityPage(1);
-                      }));
+                      Page();
                     },
                   )
-                : Text(chartTitle,
+                : Text(Title,
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.blue, fontSize: 20))),
         Container(
-          constraints: BoxConstraints.tightFor(width: 500, height: 250),
-          child: isButton
-              ? new DisplayChart()
-              : SegmentsLineChart.withRandomData(),
-        )
+            constraints: BoxConstraints.tightFor(width: 500, height: 250),
+            child: isButton ? new DisplayChart() : SegmentsLineChart.humidityRandomData())
       ],
     );
   }

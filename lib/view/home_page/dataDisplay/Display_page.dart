@@ -7,12 +7,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:earthsite/widgets/chart_widget.dart';
 
 ///数据总览页面布局
-class DataDisplayPage extends StatefulWidget {
+class DisplayPage extends StatefulWidget {
   @override
-  _DataDisplayPageState createState() => _DataDisplayPageState();
+  _DisplayPageState createState() => _DisplayPageState();
 }
 
-class _DataDisplayPageState extends State<DataDisplayPage> {
+class _DisplayPageState extends State<DisplayPage> {
 
   @override
   Widget build(BuildContext context){
@@ -22,11 +22,10 @@ class _DataDisplayPageState extends State<DataDisplayPage> {
       ),
       body:Column(
         children: [
-          ChartWidget(true),
-          ChartWidget(true),
+          ChartWidget(true,'风速传感器'),
+          ChartWidget(true,'湿度传感器'),
         ],
       ) ,
     );
   }
-
 }

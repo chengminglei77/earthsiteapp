@@ -32,7 +32,7 @@ class _ScatterGram extends State {
                   4,
                   4,
                   color: selectedSpots.contains(0) ? Colors.green : greyColor,
-                  sensorInfo: '湿度'
+                  //sensorInfo: '湿度'
                 ),
                 ScatterSpot(
                   2,
@@ -113,7 +113,7 @@ class _ScatterGram extends State {
                       10,
                       children: [
                         TextSpan(
-                          text: '${touchedBarSpot.sensorInfo.toString()} \n',
+                          text: '湿度'/*'${touchedBarSpot.sensorInfo.toString()} \n'*/,
                           style: TextStyle(
                             color: Colors.white,
                             fontStyle: FontStyle.normal,
