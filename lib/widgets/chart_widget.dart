@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:earthsite/view/home_page/dataDisplay/humidity_chart_page.dart';
 import 'package:earthsite/view/home_page/dataDisplay/humidity_page.dart';
 import 'package:earthsite/view/home_page/dataDisplay/display_chart_page.dart';
-import 'package:earthsite/view/home_page/dataDisplay/windSpeed_Chart_page.dart';
+import 'package:earthsite/view/home_page/dataDisplay/windSpeed_chart_page.dart';
 import 'package:earthsite/view/home_page/dataDisplay/windSpeed_page.dart';
 
 ///所有标题＋表格的模板组件封装

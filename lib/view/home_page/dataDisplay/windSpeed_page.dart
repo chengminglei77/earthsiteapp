@@ -1,4 +1,4 @@
-import 'package:earthsite/view/home_page/dataDisplay/windSpeed_Chart_page.dart';
+import 'package:earthsite/view/home_page/dataDisplay/windSpeed_chart_page.dart';
 import 'package:earthsite/widgets/chart_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
