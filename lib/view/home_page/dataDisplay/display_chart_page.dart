@@ -56,7 +56,7 @@ class _DisplayChart extends State<DisplayChart> {
       Humidity2.add(new SensorsData(i, random.nextInt(100)));
       Humidity3.add(new SensorsData(i, random.nextInt(100)));
     }
-    print(Humidity1.length);
+    print('当前数据list长度为:'+ Humidity1.length.toString());
 
     // Generate 2 shades of each color so that we can style the line segments.
     final blue = charts.MaterialPalette.blue.makeShades(1);

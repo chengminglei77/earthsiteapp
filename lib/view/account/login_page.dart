@@ -28,10 +28,15 @@ class _LoginPageState extends State<LoginPage> {
       return;
     }
 
-    //导航到新路由
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
+    //导航到新路由有返回
+    /*Navigator.push(context, MaterialPageRoute(builder: (context) {
       return MyStackPage();
-    }));
+    }));*/
+
+    //导航到新路由无返回
+    Navigator.of(context).pushAndRemoveUntil(
+        new MaterialPageRoute(builder: (context) => new MyStackPage()),
+        (route) => route == null);
   }
 
   void _showMessageDialog(String message) {
@@ -98,56 +103,58 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CupertinoNavigationBar(
-          middle: const Text('登录'),
-        ),
-        body: Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/loginbg.jpg'),
-                    fit: BoxFit.fill)),
-            child: ListView(
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.only(top: 30),
-                  height: 350
-                ),
-                Form(
-                  key: _formKey,
-                  child: Container(
-                    height: 130,
-                    padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
-                    child: Card(
-                      child: Column(
-                        children: <Widget>[
-                          _showAccountInput(),
-                          Divider(
-                            height: 0.5,
-                            indent: 16.0,
-                            color: Colors.grey[300],
-                          ),
-                          _showPasswordInput(),
-                        ],
-                      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              constraints: BoxConstraints.tightFor(height: 321),
+              child: Image(
+                image: AssetImage('assets/images/login.jpg'),
+              ),
+            ),
+            Container(
+              height: 160,
+              padding: const EdgeInsets.fromLTRB(35, 30, 35, 0),
+              child: Form(
+                key: _formKey,
+                child: Container(
+                  height: 130,
+                  padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+                  child: Card(
+                    child: Column(
+                      children: <Widget>[
+                        _showAccountInput(),
+                        Divider(
+                          height: 0.5,
+                          indent: 16.0,
+                          color: Colors.grey[300],
+                        ),
+                        _showPasswordInput(),
+                      ],
                     ),
                   ),
                 ),
-                Container(
-                  height: 70,
-                  padding: const EdgeInsets.fromLTRB(35, 30, 35, 0),
-                  child: OutlineButton(
-                    child: Text('登录'),
-                    textColor: Colors.orange,
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    borderSide: BorderSide(color: Colors.orange, width: 1),
-                    onPressed: () {
-                      _onLogin();
-                    },
-                  ),
-                ),
-              ],
-            )));
+              ),
+            ),
+            Container(
+              height: 70,
+              padding: const EdgeInsets.fromLTRB(35, 30, 35, 0),
+              child: OutlineButton(
+                child: Text('登录'),
+                textColor: Colors.orange,
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                borderSide: BorderSide(color: Colors.orange, width: 1),
+                onPressed: () {
+                  _onLogin();
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

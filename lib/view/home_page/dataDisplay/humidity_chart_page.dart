@@ -3,9 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:earthsite/utils/net_utils.dart';
+
 
 ///湿度传感器详细展示页面的表格及其数据
 class HumidityChartPage extends StatefulWidget {
@@ -22,8 +21,6 @@ class _HumidityChartPageState extends State<HumidityChartPage>
 
   _HumidityChartPageState(this.type);
 
-  RefreshController _refreshController =
-      RefreshController(initialRefresh: false);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +37,6 @@ class _HumidityChartPageState extends State<HumidityChartPage>
 
   @override
   void dispose() {
-    _refreshController.dispose();
     super.dispose();
   }
 }

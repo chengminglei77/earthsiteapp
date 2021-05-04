@@ -54,15 +54,15 @@ class _ChartWidgetState extends State<ChartWidget> {
             child: isButton
                 ? FlatButton(
                     child: Text(Title),
-                    textColor: Colors.blue,
-                    color: Colors.indigo,
+                    textColor: Colors.lightGreenAccent,
+                    color: Colors.green,
                     onPressed: () {
                       Page();
                     },
                   )
                 : Text(Title,
                     textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.blue, fontSize: 20))),
+                    style: TextStyle(color: Colors.green, fontSize: 20))),
         Container(
             constraints: BoxConstraints.tightFor(width: 500, height: 250),
             child: isButton ? new DisplayChart() : SegmentsLineChart.humidityRandomData())

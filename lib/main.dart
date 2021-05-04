@@ -2,7 +2,6 @@ import 'package:earthsite/view/account/login_page.dart';
 import 'package:earthsite/view/home_page/dataDisplay/Display_page.dart';
 import 'package:earthsite/view/home_page/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:earthsite/view/home_page/alarm/alarm_page.dart';
 import 'widgets/components/tabbar_item.dart';
 
