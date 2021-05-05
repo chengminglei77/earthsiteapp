@@ -27,6 +27,8 @@ class _WindSpeedPageState extends State<WindSpeedPage>
           children: [
             ChartWidget(false,'风速传感器01'),
             ChartWidget(false,'风速传感器02'),
+            ChartWidget(false,'风速传感器03'),
+            ChartWidget(false,'风速传感器04'),
           ],
         ),
       ),

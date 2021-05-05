@@ -6,21 +6,47 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 ///湿度传感器数据源
-class HumidityData extends StatelessWidget {
-  final List<charts.Series> seriesList;
-  final bool animate;
+class HumidityData extends StatefulWidget {
+  @override
+  _HumidityData createState() => _HumidityData();
+}
+class _HumidityData extends State<HumidityData> {
+  List<charts.Series> humidityList;
+  bool animate;
+  int num = 144;
 
-  HumidityData(this.seriesList, {this.animate});
-
-  factory HumidityData.humidityRandomData() {
-    return new HumidityData(_humidityRandomData());
+  @override
+  void initState() {
+    super.initState();
+    this.animate = false;
+    humidityList = _humidityRandomData(num);
+    //_initTimer();
   }
 
-  static List<charts.Series<SensorsData, num>> _humidityRandomData() {
+ /* ///定时器
+  Timer _timer;
+
+  ///定时器 - 1分钟
+  void _initTimer() {
+    if (_timer == null) {
+      _timer = Timer.periodic(Duration(seconds: 3), (timer) {
+        setState(() {
+          num++;
+          humidityList = _humidityRandomData(num);
+          if (num > 144) {
+            _timer.cancel();
+          }
+        });
+      });
+    }
+  }*/
+
+
+  static List<charts.Series<SensorsData, int>> _humidityRandomData(int n) {
     final random = new Random();
 
     List<SensorsData> Humidity1 = new List<SensorsData>();
-    for (int i = 0; i < 144; i++) {
+    for (int i = 0; i < n; i++) {
       Humidity1.add(new SensorsData(i, random.nextInt(100)));
     }
 
@@ -28,7 +54,7 @@ class HumidityData extends StatelessWidget {
 
     return [
       new charts.Series<SensorsData, int>(
-        id: 'Color Change',
+        id: 'Humidity1',
         // Light shade for even years, dark shade for odd.
         colorFn: (SensorsData time, _) => blue[0],
         domainFn: (SensorsData y, _) => y.time,
@@ -48,7 +74,7 @@ class HumidityData extends StatelessWidget {
       new charts.TickSpec(144, label: '23:59'),
     ];
 
-    return new charts.LineChart(seriesList,
+    return new charts.LineChart(humidityList,
         defaultRenderer:
         new charts.LineRendererConfig(includeArea: true, stacked: true),
         domainAxis: new charts.NumericAxisSpec(

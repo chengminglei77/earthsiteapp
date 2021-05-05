@@ -43,5 +43,4 @@ class AlarmEntity{
     data['dtuId'] = this.dtuId;
     return data;
   }
-
 }

@@ -64,7 +64,7 @@ class _ChartWidgetState extends State<ChartWidget> {
                     style: TextStyle(color: Colors.green, fontSize: 20))),
         Container(
             constraints: BoxConstraints.tightFor(width: 500, height: 250),
-            child: isButton ? new DisplayData() : HumidityData.humidityRandomData())
+            child: isButton ? new DisplayData() : new HumidityData())
       ],
     );
   }

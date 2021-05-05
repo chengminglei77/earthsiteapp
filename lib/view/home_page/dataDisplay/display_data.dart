@@ -35,7 +35,7 @@ class _DisplayData extends State<DisplayData> {
         setState(() {
           num++;
           seriesList = _createRandomData(num);
-          if (num > 27) {
+          if (num > 144) {
             _timer.cancel();
           }
         });
@@ -51,12 +51,12 @@ class _DisplayData extends State<DisplayData> {
     List<SensorsData> Humidity1 = new List<SensorsData>();
     List<SensorsData> Humidity2 = new List<SensorsData>();
     List<SensorsData> Humidity3 = new List<SensorsData>();
-    for (int i = 0; i < n && n < 27; i++) {
+    for (int i = 0; i < n && n < 144; i++) {
       Humidity1.add(new SensorsData(i, random.nextInt(100)));
       Humidity2.add(new SensorsData(i, random.nextInt(100)));
       Humidity3.add(new SensorsData(i, random.nextInt(100)));
     }
-    print('当前数据list长度为:'+ Humidity1.length.toString());
+    print('当前数据list长度为:' + Humidity1.length.toString());
 
     // Generate 2 shades of each color so that we can style the line segments.
     final blue = charts.MaterialPalette.blue.makeShades(1);
