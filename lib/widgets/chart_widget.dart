@@ -1,10 +1,9 @@
+import 'package:earthsite/view/home_page/dataDisplay/humidity_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:earthsite/view/home_page/dataDisplay/humidity_chart_page.dart';
 import 'package:earthsite/view/home_page/dataDisplay/humidity_page.dart';
-import 'package:earthsite/view/home_page/dataDisplay/display_chart_page.dart';
-import 'package:earthsite/view/home_page/dataDisplay/windSpeed_chart_page.dart';
+import 'package:earthsite/view/home_page/dataDisplay/display_data.dart';
 import 'package:earthsite/view/home_page/dataDisplay/windSpeed_page.dart';
 
 ///所有标题＋表格的模板组件封装
@@ -65,7 +64,7 @@ class _ChartWidgetState extends State<ChartWidget> {
                     style: TextStyle(color: Colors.green, fontSize: 20))),
         Container(
             constraints: BoxConstraints.tightFor(width: 500, height: 250),
-            child: isButton ? new DisplayChart() : SegmentsLineChart.humidityRandomData())
+            child: isButton ? new DisplayData() : HumidityData.humidityRandomData())
       ],
     );
   }

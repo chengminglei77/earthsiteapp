@@ -99,5 +99,4 @@ const List<Sensors> humidity = const <Sensors>[
   const Sensors(Sensor: '湿度3', type: 2),
   const Sensors(Sensor: '湿度4', type: 3),
   const Sensors(Sensor: '湿度5', type: 4),
-  const Sensors(Sensor: '湿度6', type: 5),
 ];

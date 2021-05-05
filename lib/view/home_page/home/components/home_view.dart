@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:earthsite/widgets/bottomnavigation.dart';
 
-import '../../dataDisplay/Display_page.dart';
+import '../../dataDisplay/display_page.dart';
 import '../../alarm/alarm_page.dart';
 import '../../home_page.dart';
 

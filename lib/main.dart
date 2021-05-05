@@ -1,5 +1,5 @@
 import 'package:earthsite/view/account/login_page.dart';
-import 'package:earthsite/view/home_page/dataDisplay/Display_page.dart';
+import 'package:earthsite/view/home_page/dataDisplay/display_page.dart';
 import 'package:earthsite/view/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:earthsite/view/home_page/alarm/alarm_page.dart';

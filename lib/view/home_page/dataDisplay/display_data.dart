@@ -5,13 +5,13 @@ import 'package:charts_flutter/flutter.dart' as charts;
 
 import 'package:flutter/material.dart';
 
-///数据总览的表格及其数据
-class DisplayChart extends StatefulWidget {
+///数据总览的数据源
+class DisplayData extends StatefulWidget {
   @override
-  _DisplayChart createState() => _DisplayChart();
+  _DisplayData createState() => _DisplayData();
 }
 
-class _DisplayChart extends State<DisplayChart> {
+class _DisplayData extends State<DisplayData> {
   List<charts.Series> seriesList;
   bool animate;
   int num = 1;
@@ -35,7 +35,7 @@ class _DisplayChart extends State<DisplayChart> {
         setState(() {
           num++;
           seriesList = _createRandomData(num);
-          if (num > 24) {
+          if (num > 27) {
             _timer.cancel();
           }
         });
@@ -51,7 +51,7 @@ class _DisplayChart extends State<DisplayChart> {
     List<SensorsData> Humidity1 = new List<SensorsData>();
     List<SensorsData> Humidity2 = new List<SensorsData>();
     List<SensorsData> Humidity3 = new List<SensorsData>();
-    for (int i = 0; i < n && n < 24; i++) {
+    for (int i = 0; i < n && n < 27; i++) {
       Humidity1.add(new SensorsData(i, random.nextInt(100)));
       Humidity2.add(new SensorsData(i, random.nextInt(100)));
       Humidity3.add(new SensorsData(i, random.nextInt(100)));
@@ -97,10 +97,10 @@ class _DisplayChart extends State<DisplayChart> {
   Widget build(BuildContext context) {
     final staticTicks = <charts.TickSpec<int>>[
       new charts.TickSpec(0, label: '00:00'),
-      new charts.TickSpec(6, label: '06:00'),
-      new charts.TickSpec(12, label: '12:00'),
-      new charts.TickSpec(18, label: '18:00'),
-      new charts.TickSpec(23, label: '23:00'),
+      new charts.TickSpec(36, label: '06:00'),
+      new charts.TickSpec(72, label: '12:00'),
+      new charts.TickSpec(108, label: '18:00'),
+      new charts.TickSpec(144, label: '23:59'),
     ];
 
     return new charts.LineChart(seriesList,
