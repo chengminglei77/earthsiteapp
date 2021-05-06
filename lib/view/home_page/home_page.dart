@@ -12,6 +12,27 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context){
+    var stack=new Stack(
+      alignment: const FractionalOffset(0.5,0.5),
+      children: <Widget>[
+//        new Container(
+//          width:470,
+//          height: 300,
+//          decoration: BoxDecoration(
+//            color: Colors.amber,
+//            image: new DecorationImage(
+//              fit: BoxFit.cover,
+//              image:new AssetImage("assets/images/home/wall.png"),
+//            ),
+//          ),
+//        ),
+        new Container(
+
+//          padding: EdgeInsets.all(5.0),
+          child: getContentWidget(),
+        )
+      ],
+    );
     return Scaffold(
 
       appBar: AppBar(
@@ -24,24 +45,27 @@ class _HomePageState extends State<HomePage> {
 
           children: [
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 getEastWidget(),
                 SizedBox(height: 2),
+                Center(
+                  child: stack,
+                ),
                 Container(
-                  padding: EdgeInsets.all(14.9),
-                  color: Colors.grey ,
+//                  padding: EdgeInsets.all(14.9),
+//                  color: Colors.grey ,
                   width: double.infinity,
                   child: Container(
-                    width: 184,
-                    height: 184,
-                    color: Colors.white,
+//                    width: 184,
+//                    height: 184,
+//                    color: Colors.white,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
 //                        getOriginWidget(),
-                        getContentWidget(),
-
+//                        getContentWidget(),
+//                          FancyButton(onPressed: (){}),
 //                        getDTUWidget(),
 //                        getSensorWidget(),
 //                        getNetWidget(),
@@ -54,25 +78,27 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 12),
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
                 getWestWidget(),
                 SizedBox(height: 2),
+                Center(
+                  child: stack,
+                ),
                 Container(
-                  padding: EdgeInsets.all(14.9),
-                  color: Colors.grey ,
+//                  padding: EdgeInsets.all(14.9),
+//                  color: Colors.grey ,
                   width: double.infinity,
                   child: Container(
-                    width: 184,
-                    height: 184,
-                    color: Colors.white,
+//                    width: 184,
+//                    height: 184,
+//                    color: Colors.white,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
 //                        getOriginWidget(),
-                        getContentWidget(),
-
+//                        getContentWidget(),
+//                          FancyButton(onPressed: (){}),
 //                        getDTUWidget(),
 //                        getSensorWidget(),
 //                        getNetWidget(),
@@ -85,25 +111,27 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 12),
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
                 getSouthWidget(),
                 SizedBox(height: 2),
+                Center(
+                  child: stack,
+                ),
                 Container(
-                  padding: EdgeInsets.all(14.9),
-                  color: Colors.grey ,
+//                  padding: EdgeInsets.all(14.9),
+//                  color: Colors.grey ,
                   width: double.infinity,
                   child: Container(
-                    width: 184,
-                    height: 184,
-                    color: Colors.white,
+//                    width: 184,
+//                    height: 184,
+//                    color: Colors.white,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
 //                        getOriginWidget(),
-                        getContentWidget(),
-
+//                        getContentWidget(),
+//                          FancyButton(onPressed: (){}),
 //                        getDTUWidget(),
 //                        getSensorWidget(),
 //                        getNetWidget(),
@@ -116,26 +144,27 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-
-              children: [
-                SizedBox(height: 12),
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
                 getNorthWidget(),
                 SizedBox(height: 2),
+                Center(
+                  child: stack,
+                ),
                 Container(
-                  padding: EdgeInsets.all(14.9),
-                  color: Colors.grey ,
+//                  padding: EdgeInsets.all(14.9),
+//                  color: Colors.grey ,
                   width: double.infinity,
                   child: Container(
-                    width: 184,
-                    height: 184,
-                    color: Colors.white,
+//                    width: 184,
+//                    height: 184,
+//                    color: Colors.white,
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
 //                        getOriginWidget(),
-                        getContentWidget(),
-
+//                        getContentWidget(),
+//                          FancyButton(onPressed: (){}),
 //                        getDTUWidget(),
 //                        getSensorWidget(),
 //                        getNetWidget(),
@@ -146,7 +175,39 @@ class _HomePageState extends State<HomePage> {
                   ),
                 )
               ],
-            )
+            ),
+//            Column(
+//              crossAxisAlignment: CrossAxisAlignment.start,
+//
+//              children: [
+//                SizedBox(height: 12),
+//                getNorthWidget(),
+//                SizedBox(height: 2),
+//                Container(
+//                  padding: EdgeInsets.all(14.9),
+//                  color: Colors.grey ,
+//                  width: double.infinity,
+//                  child: Container(
+//                    width: 184,
+//                    height: 184,
+//                    color: Colors.white,
+//                    child: Row(
+//                      crossAxisAlignment: CrossAxisAlignment.start,
+//                      children: <Widget>[
+////                        getOriginWidget(),
+//                        getContentWidget(),
+//
+////                        getDTUWidget(),
+////                        getSensorWidget(),
+////                        getNetWidget(),
+////                        getDashedWidget(),
+////                        getContentWish(),
+//                      ],
+//                    ),
+//                  ),
+//                )
+//              ],
+//            )
           ],
         ) ,
       )
@@ -245,7 +306,7 @@ class _HomePageState extends State<HomePage> {
   }
   Widget getContentWidget(){
     return Container(
-      width: 420,
+      width: 500,
 //      padding: EdgeInsets.symmetric(horizontal: 18),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
