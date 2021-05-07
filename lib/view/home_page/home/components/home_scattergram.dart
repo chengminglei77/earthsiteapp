@@ -346,6 +346,7 @@ class FancyButton1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
+      constraints: BoxConstraints(minWidth: 40,minHeight: 40),
       fillColor: Colors.grey,
       splashColor: Colors.orange,
       child: Padding(
@@ -383,6 +384,7 @@ class FancyButton2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
+      constraints: BoxConstraints(minWidth: 40,minHeight: 40),
       fillColor: Colors.grey,
       splashColor: Colors.orange,
       child: Padding(
@@ -420,6 +422,7 @@ class FancyButton3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
+      constraints: BoxConstraints(minWidth: 40,minHeight: 40),
       fillColor: Colors.grey,
       splashColor: Colors.orange,
       child: Padding(
@@ -449,6 +452,7 @@ class FancyButton4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
+      constraints: BoxConstraints(minWidth: 40,minHeight: 40),
       fillColor: Colors.grey,
       splashColor: Colors.orange,
       child: Padding(
@@ -478,6 +482,7 @@ class FancyButton5 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
+      constraints: BoxConstraints(minWidth: 40,minHeight: 40),
       fillColor: Colors.grey,
       splashColor: Colors.orange,
       child: Padding(
@@ -507,6 +512,7 @@ class FancyButton6 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
+      constraints: BoxConstraints(minWidth: 40,minHeight: 40),
       fillColor: Colors.grey,
       splashColor: Colors.orange,
       child: Padding(
@@ -536,6 +542,7 @@ class FancyButton7 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
+      constraints: BoxConstraints(minWidth: 40,minHeight: 40),
       fillColor: Colors.grey,
       splashColor: Colors.orange,
       child: Padding(
@@ -565,6 +572,7 @@ class FancyButton8 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
+      constraints: BoxConstraints(minWidth: 40,minHeight: 40),
       fillColor: Colors.grey,
       splashColor: Colors.orange,
       child: Padding(
@@ -594,6 +602,7 @@ class FancyButton9 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
+      constraints: BoxConstraints(minWidth: 40,minHeight: 40),
       fillColor: Colors.grey,
       splashColor: Colors.orange,
       child: Padding(
