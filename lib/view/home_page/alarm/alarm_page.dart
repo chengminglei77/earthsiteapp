@@ -62,6 +62,7 @@ class _AlarmPageState extends State<AlarmPage> {
       Map<String, dynamic> dataJson = json.decode(data);
       List responseJson = json.decode(json.encode(dataJson["rows"]));
       print("------responseData--------");
+      print(responseJson);
       List<AlarmEntity> cardbeanList =
           responseJson.map((m) => new AlarmEntity.fromJson(m)).toList();
       setState(() {
