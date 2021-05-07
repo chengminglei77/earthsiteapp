@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:earthsite/widgets/bottomnavigation.dart';
 
-import '../../dataDisplay/dataDisplay_page.dart';
+import '../../dataDisplay/display_page.dart';
 import '../../alarm/alarm_page.dart';
 import '../../home_page.dart';
 
@@ -21,7 +21,7 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     list
       ..add(HomePage())
-      ..add(DataDisplayPage())
+      ..add(DisplayPage())
       ..add(AlarmPage());
 
     super.initState(); //无名无参需要调用
