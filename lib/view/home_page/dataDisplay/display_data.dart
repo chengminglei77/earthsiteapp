@@ -14,7 +14,7 @@ class DisplayData extends StatefulWidget {
 class _DisplayData extends State<DisplayData> {
   List<charts.Series> seriesList;
   bool animate;
-  int num = 1;
+  int num = 144;
 
   /// Creates a [LineChart] with sample data and no transition.
   @override
@@ -22,10 +22,10 @@ class _DisplayData extends State<DisplayData> {
     super.initState();
     this.animate = false;
     seriesList = _createRandomData(num);
-    _initTimer();
+    //_initTimer();
   }
 
-  ///定时器
+  /*///定时器
   Timer _timer;
 
   ///定时器 - 1分钟
@@ -41,7 +41,7 @@ class _DisplayData extends State<DisplayData> {
         });
       });
     }
-  }
+  }*/
 
   /// Create random data.
   static List<charts.Series<SensorsData, int>> _createRandomData(int n) {
@@ -51,7 +51,7 @@ class _DisplayData extends State<DisplayData> {
     List<SensorsData> Humidity1 = new List<SensorsData>();
     List<SensorsData> Humidity2 = new List<SensorsData>();
     List<SensorsData> Humidity3 = new List<SensorsData>();
-    for (int i = 0; i < n && n < 144; i++) {
+    for (int i = 0; i  < 144; i++) {
       Humidity1.add(new SensorsData(i, random.nextInt(100)));
       Humidity2.add(new SensorsData(i, random.nextInt(100)));
       Humidity3.add(new SensorsData(i, random.nextInt(100)));
