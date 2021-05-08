@@ -4,7 +4,9 @@ class HumidityEntity {
   double y;
   String type;
   int x;
+  String Humidity0;
   String Humidity1;
+  String Humidity2;
 
   HumidityEntity({
     String deviceId,
@@ -12,7 +14,9 @@ class HumidityEntity {
     double y,
     String type,
     int x,
+    String Humidity0,
     String Humidity1,
+    String Humidity2,
   });
 
   HumidityEntity.fromJson(List<dynamic> json) {
@@ -25,17 +29,22 @@ class HumidityEntity {
     int min = int.parse(time.substring(14, 16));
 
     /*if (deviceId == "SDGW01DTU0201000801") {
-      Humidity1 = deviceId;
+      Humidity0 = deviceId;
       x = (hour * 6 + min / 10).toInt();
     }*/
 
-    if (deviceId == "SDGW01DTU0201000801") {
+    if (hour >= 16 && hour <= 23) {
+      x = ((hour - 16) * 6 + min / 10).toInt();
+    } else if (hour >= 00 && hour <= 15) {
+      x = ((hour + 8) * 6 + min / 10).toInt();
+    }
+
+    if (deviceId == "SDGW01DTU0201000800") {
+      Humidity0 = deviceId;
+    }else if (deviceId == "SDGW01DTU0201000801") {
       Humidity1 = deviceId;
-      if (hour >= 16 && hour <= 23) {
-        x = ((hour - 16) * 6 + min / 10).toInt();
-      } else if (hour >= 00 && hour <= 15) {
-        x = ((hour + 8) * 6 + min / 10).toInt();
-      }
+    }else if (deviceId == "SDGW01DTU0201000802") {
+      Humidity2 = deviceId;
     }
   }
 }

@@ -25,10 +25,10 @@ class _WindSpeedPageState extends State<WindSpeedPage>
       body:SingleChildScrollView(
         child: Column(
           children: [
-            ChartWidget(false,'风速传感器01'),
-            ChartWidget(false,'风速传感器02'),
-            ChartWidget(false,'风速传感器03'),
-            ChartWidget(false,'风速传感器04'),
+            ChartWidget(false,'风速传感器01',null),
+            ChartWidget(false,'风速传感器02',null),
+            ChartWidget(false,'风速传感器03',null),
+            ChartWidget(false,'风速传感器04',null),
           ],
         ),
       ),
