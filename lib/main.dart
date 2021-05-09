@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
           highlightColor: Colors.transparent, //去掉高亮效果
           splashColor: Colors.transparent //去掉水波纹效果
           ),
-      home: LoginPage(),
+      home: MyStackPage(),
     );
   }
 }

@@ -2,33 +2,33 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:earthsite/bean/humidity_entity.dart';
+import 'package:earthsite/bean/windSpeed_entity.dart';
 import 'package:earthsite/constants/Urls.dart';
 import 'package:earthsite/utils/HttpRequest.dart';
 
 import 'package:flutter/material.dart';
 
 ///湿度传感器数据源
-class HumidityData extends StatefulWidget {
+class WindSpeedData extends StatefulWidget {
   String sensorId;
 
-  HumidityData(
+  WindSpeedData(
     this.sensorId,
   );
 
   @override
-  _HumidityData createState() => _HumidityData(sensorId);
+  _WindSpeedData createState() => _WindSpeedData(sensorId);
 }
 
-class _HumidityData extends State<HumidityData> {
+class _WindSpeedData extends State<WindSpeedData> {
   String sensorId;
 
-  _HumidityData(
+  _WindSpeedData(
     this.sensorId,
   );
 
-  List<HumidityEntity> _humidityList = List();
-  List<charts.Series> humidityList = List();
+  List<WindSpeedEntity> _windSpeedList = List();
+  List<charts.Series> windSpeedList = List();
   bool animate;
   int num = 144;
 
@@ -61,7 +61,7 @@ class _HumidityData extends State<HumidityData> {
     if (_timer == null) {
       _timer = Timer.periodic(Duration(minutes: 10), (timer) {
         setState(() {
-          _humidityList.clear();
+          _windSpeedList.clear();
           _getdataList();
         });
       });
@@ -73,27 +73,29 @@ class _HumidityData extends State<HumidityData> {
     HttpRequest.getInstance().get(Urls.data_url, successCallBack: (data) {
       List responseJson = json.decode(data);
       print("------responseData--------");
-      List<HumidityEntity> chartList =
-          responseJson.map((m) => new HumidityEntity.fromJson(m)).toList();
+      List<WindSpeedEntity> chartList =
+          responseJson.map((m) => new WindSpeedEntity.fromJson(m)).toList();
       setState(() {
-        _humidityList.addAll(chartList);
-        if (sensorId == "SDGW01DTU0201000800") {
-          humidityList = _humidityData0();
-        } else if (sensorId == "SDGW01DTU0201000801") {
-          humidityList = _humidityData1();
-        } else if (sensorId == "SDGW01DTU0201000802") {
-          humidityList = _humidityData2();
-        } else
-          humidityList = _humidityData0();
+        _windSpeedList.addAll(chartList);
+        if (sensorId == "FSGW01DTU0302000100") {
+          windSpeedList = _windSpeedData1();
+        } else if (sensorId == "FSGW01DTU0102000200") {
+          windSpeedList = _windSpeedData2();
+        } else if (sensorId == "FSGW01DTU0402010100") {
+          windSpeedList = _windSpeedData3();
+        } else if (sensorId == "FSGW01DTU0402010200") {
+          windSpeedList = _windSpeedData4();
+        }else
+          windSpeedList = _windSpeedData1();
       });
     }, errorCallBack: (code, msg) {});
   }
 
-  List<charts.Series<SensorsData, int>> _humidityData0() {
-    List<SensorsData> Humidity0 = new List<SensorsData>();
-    for (int i = 0; i < _humidityList.length; i++) {
-      if (_humidityList[i].Humidity0 != null) {
-        Humidity0.add(new SensorsData(_humidityList[i].x, _humidityList[i].y));
+  List<charts.Series<SensorsData, int>> _windSpeedData1() {
+    List<SensorsData> WindSpeed1 = new List<SensorsData>();
+    for (int i = 0; i < _windSpeedList.length; i++) {
+      if (_windSpeedList[i].WindSpeed1 != null) {
+        WindSpeed1.add(new SensorsData(_windSpeedList[i].x, _windSpeedList[i].y));
       }
     }
 
@@ -101,21 +103,21 @@ class _HumidityData extends State<HumidityData> {
 
     return [
       new charts.Series<SensorsData, int>(
-        id: 'Humidity0',
+        id: 'WindSpeed1',
         // Light shade for even years, dark shade for odd.
         colorFn: (SensorsData time, _) => blue[0],
         domainFn: (SensorsData y, _) => y.time,
         measureFn: (SensorsData y, _) => y.y,
-        data: Humidity0,
+        data: WindSpeed1,
       ),
     ];
   }
 
-  List<charts.Series<SensorsData, int>> _humidityData1() {
-    List<SensorsData> Humidity1 = new List<SensorsData>();
-    for (int i = 0; i < _humidityList.length; i++) {
-      if (_humidityList[i].Humidity1 != null) {
-        Humidity1.add(new SensorsData(_humidityList[i].x, _humidityList[i].y));
+  List<charts.Series<SensorsData, int>> _windSpeedData2() {
+    List<SensorsData> WindSpeed2 = new List<SensorsData>();
+    for (int i = 0; i < _windSpeedList.length; i++) {
+      if (_windSpeedList[i].WindSpeed2 != null) {
+        WindSpeed2.add(new SensorsData(_windSpeedList[i].x, _windSpeedList[i].y));
       }
     }
 
@@ -123,21 +125,21 @@ class _HumidityData extends State<HumidityData> {
 
     return [
       new charts.Series<SensorsData, int>(
-        id: 'Humidity1',
+        id: 'WindSpeed2',
         // Light shade for even years, dark shade for odd.
         colorFn: (SensorsData time, _) => blue[0],
         domainFn: (SensorsData y, _) => y.time,
         measureFn: (SensorsData y, _) => y.y,
-        data: Humidity1,
+        data: WindSpeed2,
       ),
     ];
   }
 
-  List<charts.Series<SensorsData, int>> _humidityData2() {
-    List<SensorsData> Humidity2 = new List<SensorsData>();
-    for (int i = 0; i < _humidityList.length; i++) {
-      if (_humidityList[i].Humidity2 != null) {
-        Humidity2.add(new SensorsData(_humidityList[i].x, _humidityList[i].y));
+  List<charts.Series<SensorsData, int>> _windSpeedData3() {
+    List<SensorsData> WindSpeed3 = new List<SensorsData>();
+    for (int i = 0; i < _windSpeedList.length; i++) {
+      if (_windSpeedList[i].WindSpeed3 != null) {
+        WindSpeed3.add(new SensorsData(_windSpeedList[i].x, _windSpeedList[i].y));
       }
     }
 
@@ -145,20 +147,42 @@ class _HumidityData extends State<HumidityData> {
 
     return [
       new charts.Series<SensorsData, int>(
-        id: 'Humidity2',
+        id: 'WindSpeed3',
         // Light shade for even years, dark shade for odd.
         colorFn: (SensorsData time, _) => blue[0],
         domainFn: (SensorsData y, _) => y.time,
         measureFn: (SensorsData y, _) => y.y,
-        data: Humidity2,
+        data: WindSpeed3,
+      ),
+    ];
+  }
+
+  List<charts.Series<SensorsData, int>> _windSpeedData4() {
+    List<SensorsData> WindSpeed4 = new List<SensorsData>();
+    for (int i = 0; i < _windSpeedList.length; i++) {
+      if (_windSpeedList[i].WindSpeed4 != null) {
+        WindSpeed4.add(new SensorsData(_windSpeedList[i].x, _windSpeedList[i].y));
+      }
+    }
+
+    final blue = charts.MaterialPalette.blue.makeShades(1);
+
+    return [
+      new charts.Series<SensorsData, int>(
+        id: 'WindSpeed4',
+        // Light shade for even years, dark shade for odd.
+        colorFn: (SensorsData time, _) => blue[0],
+        domainFn: (SensorsData y, _) => y.time,
+        measureFn: (SensorsData y, _) => y.y,
+        data: WindSpeed4,
       ),
     ];
   }
 
   @override
   Widget build(BuildContext context) {
-    return humidityList.length > 0
-        ? new charts.LineChart(humidityList,
+    return windSpeedList.length > 0
+        ? new charts.LineChart(windSpeedList,
             defaultRenderer:
                 new charts.LineRendererConfig(includeArea: true, stacked: true),
             domainAxis: new charts.NumericAxisSpec(

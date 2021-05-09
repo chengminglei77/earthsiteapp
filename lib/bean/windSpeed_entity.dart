@@ -1,25 +1,27 @@
-class HumidityEntity {
+class WindSpeedEntity {
   String deviceId;
   String time;
   double y;
   String type;
   int x;
-  String Humidity0;
-  String Humidity1;
-  String Humidity2;
+  String WindSpeed1;
+  String WindSpeed2;
+  String WindSpeed3;
+  String WindSpeed4;
 
-  HumidityEntity({
+  WindSpeedEntity({
     String deviceId,
     String time,
     double y,
     String type,
     int x,
-    String Humidity0,
-    String Humidity1,
-    String Humidity2,
+    String WindSpeed1,
+    String WindSpeed2,
+    String WindSpeed3,
+    String WindSpeed4,
   });
 
-  HumidityEntity.fromJson(List<dynamic> json) {
+  WindSpeedEntity.fromJson(List<dynamic> json) {
     time = json[0].toString();
     y = json[1];
     deviceId = json[2];
@@ -29,7 +31,7 @@ class HumidityEntity {
     int min = int.parse(time.substring(14, 16));
 
     /*if (deviceId == "SDGW01DTU0201000801") {
-      Humidity0 = deviceId;
+      WindSpeed2 = deviceId;
       x = (hour * 6 + min / 10).toInt();
     }*/
 
@@ -39,12 +41,14 @@ class HumidityEntity {
       x = ((hour + 8) * 6 + min / 10).toInt();
     }
 
-    if (deviceId == "SDGW01DTU0201000800") {
-      Humidity0 = deviceId;
-    }else if (deviceId == "SDGW01DTU0201000801") {
-      Humidity1 = deviceId;
-    }else if (deviceId == "SDGW01DTU0201000802") {
-      Humidity2 = deviceId;
+    if (deviceId == "FSGW01DTU0302000100") {
+      WindSpeed1 = deviceId;
+    }else if (deviceId == "FSGW01DTU0302000200") {
+      WindSpeed2 = deviceId;
+    }else if (deviceId == "FSGW01DTU0402010100") {
+      WindSpeed3 = deviceId;
+    }else if (deviceId == "FSGW01DTU0402010200") {
+      WindSpeed4 = deviceId;
     }
   }
 }
