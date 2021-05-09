@@ -1,6 +1,7 @@
 import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:dotted_decoration/dotted_decoration.dart';
 class FSPopSessionBox extends AlertDialog{
 
   FSPopSessionBox(String name,String message,Icon icon):
@@ -25,7 +26,7 @@ class FSPopSessionBox extends AlertDialog{
                 child: ListTile(
                   leading: Container(
                     width: 15,
-                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                     child: icon,
                   ),
                   trailing: IconButton(icon: Icon(Icons.toys),onPressed: (){},),
@@ -48,14 +49,14 @@ class FSPopSessionBox extends AlertDialog{
 //                    color: Colors.lightBlue,
                     width: 80 ,
                     height: 80,
-                    padding: EdgeInsets.all(8),
+                    padding: EdgeInsets.all(10),
                     child: CircleAvatar(
                         backgroundColor:Colors.transparent,
                         backgroundImage: new AssetImage("assets/images/home/fengsu2.png")
                     ),
                   ),
                   Container(
-                    color: Colors.amber,
+                    color: Colors.transparent,
                     width: 180 ,
                     child: ListTile(
                       title: Text("当前风速"),
@@ -71,6 +72,13 @@ class FSPopSessionBox extends AlertDialog{
 //                      ),
                     ),
                   ),
+//                  Container(
+//                    decoration: DottedDecoration(
+//                      shape: Shape.line, linePosition: LinePosition.bottom,
+//                    ),
+//
+//                  ),
+
                 ],
               ),
 //              Text(message),

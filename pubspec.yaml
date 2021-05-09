@@ -38,7 +38,7 @@ dependencies:
   screen_utils: ^0.0.1
   fl_chart: ^0.35.0
   fluttertoast: ^3.1.3  #提示框
-
+  dotted_decoration:
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +75,8 @@ flutter:
     - assets/images/home/wall4.png
     - assets/images/home/fengsu.jpg
     - assets/images/home/shidu.png
+    - assets/images/home/shidu2.png
+    - assets/images/home/fengsu2.png
 
 
 

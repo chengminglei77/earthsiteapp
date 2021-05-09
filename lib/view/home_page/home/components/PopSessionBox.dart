@@ -1,6 +1,7 @@
 import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:dotted_decoration/dotted_decoration.dart';
 class PopSessionBox extends AlertDialog{
 
   PopSessionBox(String name,List<dynamic> message,List<dynamic> thirty,Icon icon):
@@ -25,7 +26,7 @@ class PopSessionBox extends AlertDialog{
               child: ListTile(
                 leading: Container(
                   width: 10,
-                  padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                  padding: EdgeInsets.fromLTRB(5, 0, 0, 0),
                   child: icon,
                 ),
                 trailing: IconButton(icon: Icon(Icons.explore),onPressed: (){},),
@@ -55,8 +56,8 @@ class PopSessionBox extends AlertDialog{
                     ),
                   ),
                   Container(
-                    color: Colors.amber,
-                    width: 150 ,
+                    color: Colors.transparent,
+                    width: 180 ,
                     child: ListTile(
                       title: Text("(5cm)湿度值："),
                       subtitle: Text(
@@ -68,6 +69,12 @@ class PopSessionBox extends AlertDialog{
                   ),
                 ],
               ),
+                        Container(
+              decoration: DottedDecoration(
+                  shape: Shape.line, linePosition: LinePosition.bottom,
+              ),
+
+      ),
               SizedBox(height: 6),
               Row(
                 children: [
@@ -81,9 +88,10 @@ class PopSessionBox extends AlertDialog{
                         backgroundImage: new AssetImage("assets/images/home/shidu2.png")
                     ),
                   ),
+
                   Container(
-                    color: Colors.amber,
-                    width: 150 ,
+                    color: Colors.transparent,
+                    width: 180 ,
                     child: ListTile(
                       title: Text("(15cm)湿度值："),
                       subtitle: Text(
@@ -96,6 +104,13 @@ class PopSessionBox extends AlertDialog{
                 ],
               ),
               SizedBox(height: 6),
+              Container(
+                decoration: DottedDecoration(
+                  shape: Shape.line, linePosition: LinePosition.bottom,
+                ),
+
+              ),
+
               Row(
                 children: [
                   Container(
@@ -109,8 +124,8 @@ class PopSessionBox extends AlertDialog{
                     ),
                   ),
                   Container(
-                    color: Colors.amber,
-                    width: 150 ,
+                    color: Colors.transparent,
+                    width: 180 ,
                     child: ListTile(
                       title: Text("(30cm)湿度值："),
                       subtitle: Text(

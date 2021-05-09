@@ -113,7 +113,7 @@ class _ScatterGram extends State {
                            _getSensorList();
                            showDialog(
                              context: context,
-                             builder: (ctx)=>PopSessionBox('湿度传感器1',[get[18],get[15]],[get[12]],Icon(Icons.explore,color: Colors.amber,)),
+                             builder: (ctx)=>PopSessionBox('湿度传感器1',[get[18]+'\n'+get[19],get[15]+'\n'+get[16]],[get[12]+'\n'+get[13]],Icon(Icons.explore,color: Colors.amber,)),
 //                             builder: (ctx)=>PopSessionBox(),
                            );
                          }),
@@ -124,7 +124,7 @@ class _ScatterGram extends State {
                          child: FancyButton2(onPressed: (){
                            showDialog(
                              context: context,
-                             builder: (ctx)=>PopSessionBox('湿度传感器2',[get[27],get[24]],[get[21]],Icon(Icons.explore,color: Colors.amber,)),
+                             builder: (ctx)=>PopSessionBox('湿度传感器2',[get[27]+'\n'+get[28],get[24]+'\n'+get[25]],[get[21]+'\n'+get[22]],Icon(Icons.explore,color: Colors.amber,)),
 //                             builder: (ctx)=>PopSessionBox(),
                            );
                          }),
@@ -136,7 +136,7 @@ class _ScatterGram extends State {
 
                          showDialog(
                            context: context,
-                           builder: (ctx)=>PopSessionBox('湿度传感器3',[get[36],get[33]],[get[30]],Icon(Icons.explore,color: Colors.amber,)),
+                           builder: (ctx)=>PopSessionBox('湿度传感器3',[get[36]+'\n'+get[37],get[33]+'\n'+get[34]],[get[30]+'\n'+get[31]],Icon(Icons.explore,color: Colors.amber,)),
 //                             builder: (ctx)=>PopSessionBox(),
                          );
                        })),
@@ -145,7 +145,7 @@ class _ScatterGram extends State {
                            child: FancyButton4(onPressed: (){
                          showDialog(
                            context: context,
-                           builder: (ctx)=>PopSessionBox('湿度传感器4',[get[45],get[42]],[get[39]],Icon(Icons.explore,color: Colors.amber,)),
+                           builder: (ctx)=>PopSessionBox('湿度传感器4',[get[45]+'\n'+get[46],get[42]+'\n'+get[43]],[get[39]+'\n'+get[40]],Icon(Icons.explore,color: Colors.amber,)),
 //                             builder: (ctx)=>PopSessionBox(),
                          );
                        })),
@@ -154,7 +154,7 @@ class _ScatterGram extends State {
                            child: FancyButton4(onPressed: (){
                              showDialog(
                                context: context,
-                               builder: (ctx)=>PopSessionBox('湿度传感器5',[get[54],get[51]],[get[48]],Icon(Icons.explore,color: Colors.amber,)),
+                               builder: (ctx)=>PopSessionBox('湿度传感器5',[get[54]+'\n'+get[55],get[51]+'\n'+get[52]],[get[48]+'\n'+get[49]],Icon(Icons.explore,color: Colors.amber,)),
 //                             builder: (ctx)=>PopSessionBox(),
                              );
                            })),
@@ -734,6 +734,8 @@ void _getSensorList() {
         get[52]=responseJson[17]['colTime'];
         get[53]=responseJson[17]['sensorParam'];
         get[54]=responseJson[18]['sensorValue'];
+        get[55]=responseJson[18]['colTime'];
+        get[56]=responseJson[18]['sensorParam'];
 //
 //        int i;
 //        for( i=0;i<responseJson.length;i++){
