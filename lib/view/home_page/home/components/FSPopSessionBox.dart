@@ -47,10 +47,11 @@ class FSPopSessionBox extends AlertDialog{
                   Container(
 //                    color: Colors.lightBlue,
                     width: 80 ,
-                    height: 70,
+                    height: 80,
                     padding: EdgeInsets.all(8),
                     child: CircleAvatar(
-                        backgroundImage: new AssetImage("assets/images/home/shidu.png")
+                        backgroundColor:Colors.transparent,
+                        backgroundImage: new AssetImage("assets/images/home/fengsu2.png")
                     ),
                   ),
                   Container(

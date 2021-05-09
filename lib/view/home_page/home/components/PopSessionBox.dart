@@ -50,7 +50,8 @@ class PopSessionBox extends AlertDialog{
                     height: 70,
                     padding: EdgeInsets.all(10),
                     child: CircleAvatar(
-                        backgroundImage: new AssetImage("assets/images/home/fengsu.jpg")
+                        backgroundColor:Colors.transparent,
+                        backgroundImage: new AssetImage("assets/images/home/shidu2.png")
                     ),
                   ),
                   Container(
@@ -67,6 +68,7 @@ class PopSessionBox extends AlertDialog{
                   ),
                 ],
               ),
+              SizedBox(height: 6),
               Row(
                 children: [
                   Container(
@@ -75,7 +77,8 @@ class PopSessionBox extends AlertDialog{
                     height: 70,
                     padding: EdgeInsets.all(10),
                     child: CircleAvatar(
-                        backgroundImage: new AssetImage("assets/images/home/fengsu.jpg")
+                        backgroundColor:Colors.transparent,
+                        backgroundImage: new AssetImage("assets/images/home/shidu2.png")
                     ),
                   ),
                   Container(
@@ -92,6 +95,7 @@ class PopSessionBox extends AlertDialog{
                   ),
                 ],
               ),
+              SizedBox(height: 6),
               Row(
                 children: [
                   Container(
@@ -100,7 +104,8 @@ class PopSessionBox extends AlertDialog{
                     height: 70,
                     padding: EdgeInsets.all(10),
                     child: CircleAvatar(
-                        backgroundImage: new AssetImage("assets/images/home/fengsu.jpg")
+                        backgroundColor:Colors.transparent,
+                        backgroundImage: new AssetImage("assets/images/home/shidu2.png")
                     ),
                   ),
                   Container(

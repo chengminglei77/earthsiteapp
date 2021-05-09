@@ -1,5 +1,5 @@
 abstract class Urls {
-  static const String Base = 'http://192.168.1.48:9090/';
+  static const String Base = 'http://192.168.1.1:9090/';
   //报警接口
   static const String Alarm_url = Base + 'admin/alarmInfoClassify/';
 
