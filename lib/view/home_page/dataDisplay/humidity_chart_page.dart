@@ -23,9 +23,9 @@ class _HumidityChartPageState extends State<HumidityChartPage>
     return SingleChildScrollView(
       child: Column(
         children: [
-          ChartWidget(false,'5cm','SDGW01DTU0201000800'),
-          ChartWidget(false,'10cm','SDGW01DTU0201000801'),
-          ChartWidget(false,'15cm','SDGW01DTU0201000802'),
+          ChartWidget(false,'5cm','SDGW01DTU0201000800',true),
+          ChartWidget(false,'10cm','SDGW01DTU0201000801',true),
+          ChartWidget(false,'15cm','SDGW01DTU0201000802',true),
         ],
       ),
     );

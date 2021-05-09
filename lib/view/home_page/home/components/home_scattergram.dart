@@ -742,18 +742,6 @@ void _getSensorList() {
 //          get[i+2]=responseJson[i]['colTime'];
 //        }
 
-        print(get[0]);
-        print(get[1]);
-        print(get[2]);
-        print(get[3]);
-        print(get[4]);
-        print(get[5]);
-        print(get[6]);
-        print(get[7]);
-        print(get[8]);
-        print(get[9]);
-        print(get[10]);
-        print(get[11]);
         return get;
 //        print(get[4]);
 //

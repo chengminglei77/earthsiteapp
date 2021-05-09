@@ -1,0 +1,4 @@
+storePassword=earthsite
+keyPassword=earthsite
+keyAlias=sign
+storeFile=key/sign.jks

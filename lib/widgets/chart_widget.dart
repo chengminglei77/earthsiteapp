@@ -1,4 +1,5 @@
 import 'package:earthsite/view/home_page/dataDisplay/humidity_data.dart';
+import 'package:earthsite/view/home_page/dataDisplay/windSpeed_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,26 +12,31 @@ class ChartWidget extends StatefulWidget {
   bool isButton;
   String Title;
   String sensorId;
+  bool isH;
 
   ChartWidget(
     @required this.isButton,
     @required this.Title,
-   this. sensorId,
+    this.sensorId,
+    this.isH,
   );
 
   @override
-  _ChartWidgetState createState() => _ChartWidgetState(isButton, Title,sensorId);
+  _ChartWidgetState createState() =>
+      _ChartWidgetState(isButton, Title, sensorId, isH);
 }
 
 class _ChartWidgetState extends State<ChartWidget> {
   bool isButton;
   String Title;
   String sensorId;
+  bool isH;
 
   _ChartWidgetState(
     @required this.isButton,
     @required this.Title,
-      this. sensorId,
+    this.sensorId,
+    this.isH,
   );
 
   void Page() {
@@ -68,7 +74,11 @@ class _ChartWidgetState extends State<ChartWidget> {
                     style: TextStyle(color: Colors.green, fontSize: 20))),
         Container(
             constraints: BoxConstraints.tightFor(width: 500, height: 250),
-            child: isButton ? new DisplayData() : new HumidityData(sensorId))
+            child: isButton
+                ? new DisplayData()
+                : (isH
+                    ? new HumidityData(sensorId)
+                    : new WindSpeedData(sensorId)))
       ],
     );
   }
