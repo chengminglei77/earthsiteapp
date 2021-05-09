@@ -30,6 +30,7 @@ class _AlarmPageState extends State<AlarmPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text("报警信息", style: TextStyle(color: Colors.black)),
+          centerTitle: true, // 标题居中
         ),
         body: Container(
           child: _alarmList.length > 0

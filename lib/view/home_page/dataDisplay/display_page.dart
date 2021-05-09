@@ -17,6 +17,7 @@ class _DisplayPageState extends State<DisplayPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("数据总览",style: TextStyle(color: Colors.black)),
+        centerTitle: true, // 标题居中
       ),
       body:Column(
         children: [
