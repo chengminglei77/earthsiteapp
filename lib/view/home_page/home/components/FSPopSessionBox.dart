@@ -24,8 +24,8 @@ class FSPopSessionBox extends AlertDialog{
                 color: Colors.lightBlue,
                 child: ListTile(
                   leading: Container(
-                    width: 10,
-                    padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+                    width: 15,
+                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                     child: icon,
                   ),
                   trailing: IconButton(icon: Icon(Icons.toys),onPressed: (){},),
@@ -39,13 +39,43 @@ class FSPopSessionBox extends AlertDialog{
 //      titleTextStyle: TextStyle(color: Colors.black87, fontSize: 16),
       titlePadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
         content: new SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(85, 0, 0, 0),
+//          padding: EdgeInsets.fromLTRB(85, 0, 0, 0),
           child: new ListBody(
             children: [
-              Text(message),
-              Text(message),
-              Text(message),
-              Text(message),
+              Row(
+                children: [
+                  Container(
+//                    color: Colors.lightBlue,
+                    width: 80 ,
+                    height: 70,
+                    padding: EdgeInsets.all(8),
+                    child: CircleAvatar(
+                        backgroundImage: new AssetImage("assets/images/home/shidu.png")
+                    ),
+                  ),
+                  Container(
+                    color: Colors.amber,
+                    width: 180 ,
+                    child: ListTile(
+                      title: Text("当前风速"),
+                      subtitle: Text(
+                        message,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+//                      trailing: Text(
+//                        date,
+//                        maxLines: 2,
+//                        overflow: TextOverflow.ellipsis,
+//                      ),
+                    ),
+                  ),
+                ],
+              ),
+//              Text(message),
+//              Text(message),
+//              Text(message),
+//              Text(message),
 
             ],
           ),

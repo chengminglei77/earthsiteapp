@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'PopSessionBox.dart';
 import 'FSPopSessionBox.dart';
 import 'dart:ui';
+import 'package:earthsite/constants/Urls.dart';
+import 'package:earthsite/utils/HttpRequest.dart';
+import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 class ScatterGram extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _ScatterGram();
@@ -10,6 +14,11 @@ class ScatterGram extends StatefulWidget {
 
 
 class _ScatterGram extends State {
+  @override
+  void initState() {
+    super.initState();
+    _getSensorList();
+  }
   int touchedIndex;
 
 //  Color greyColor = Color(0xFFFF9A9A);
@@ -43,10 +52,11 @@ class _ScatterGram extends State {
                 child: Column(
                   children: [
                     Container(
-                      child: FancyButton6(onPressed: (){
+                      child: FancyButton6(onPressed: () async{
+
                         showDialog(
                           context: context,
-                          builder: (ctx)=>FSPopSessionBox('风速传感器1','11111',Icon(Icons.toys,color: Colors.amber,)),
+                          builder: (ctx)=>FSPopSessionBox('风速传感器1',get[2]+' '+get[0]+'\n'+get[1],Icon(Icons.toys,color: Colors.amber,)),
 //                             builder: (ctx)=>PopSessionBox(),
                         );
                       }),alignment: Alignment.bottomRight,
@@ -56,7 +66,7 @@ class _ScatterGram extends State {
                       child: FancyButton7(onPressed: (){
                         showDialog(
                           context: context,
-                          builder: (ctx)=>FSPopSessionBox('风速传感器2','11111',Icon(Icons.toys,color: Colors.amber,)),
+                          builder: (ctx)=>FSPopSessionBox('风速传感器2',get[5]+' '+get[3]+'\n'+get[4],Icon(Icons.toys,color: Colors.amber,)),
 //                             builder: (ctx)=>PopSessionBox(),
                         );
                       }),alignment: Alignment.bottomRight,padding: EdgeInsets.fromLTRB(10,0,20,0),
@@ -66,7 +76,7 @@ class _ScatterGram extends State {
                       child: FancyButton8(onPressed: (){
                         showDialog(
                           context: context,
-                          builder: (ctx)=>FSPopSessionBox('风速传感器3','11111',Icon(Icons.toys,color: Colors.amber,)),
+                          builder: (ctx)=>FSPopSessionBox('风速传感器3',get[8]+' '+get[6]+'\n'+get[7],Icon(Icons.toys,color: Colors.amber,)),
 //                             builder: (ctx)=>PopSessionBox(),
                         );
                       }),alignment: Alignment.bottomRight,padding: EdgeInsets.fromLTRB(10,0,15,0),
@@ -75,7 +85,7 @@ class _ScatterGram extends State {
                       child: FancyButton9(onPressed: (){
                         showDialog(
                           context: context,
-                          builder: (ctx)=>FSPopSessionBox('风速传感器4','11111',Icon(Icons.toys,color: Colors.amber,)),
+                          builder: (ctx)=>FSPopSessionBox('风速传感器4',get[11]+' '+get[9]+'\n'+get[10],Icon(Icons.toys,color: Colors.amber,)),
 //                             builder: (ctx)=>PopSessionBox(),
                         );
                       }),alignment: Alignment.bottomRight,
@@ -100,9 +110,10 @@ class _ScatterGram extends State {
                          padding: EdgeInsets.fromLTRB(20, 20, 20, 1),
                          alignment: Alignment.centerLeft,
                          child: FancyButton1(onPressed: (){
+                           _getSensorList();
                            showDialog(
                              context: context,
-                             builder: (ctx)=>PopSessionBox('湿度传感器1','11111',Icon(Icons.explore,color: Colors.amber,)),
+                             builder: (ctx)=>PopSessionBox('湿度传感器1',[get[18],get[15]],[get[12]],Icon(Icons.explore,color: Colors.amber,)),
 //                             builder: (ctx)=>PopSessionBox(),
                            );
                          }),
@@ -113,7 +124,7 @@ class _ScatterGram extends State {
                          child: FancyButton2(onPressed: (){
                            showDialog(
                              context: context,
-                             builder: (ctx)=>PopSessionBox('湿度传感器2','11111',Icon(Icons.explore,color: Colors.amber,)),
+                             builder: (ctx)=>PopSessionBox('湿度传感器2',[get[27],get[24]],[get[21]],Icon(Icons.explore,color: Colors.amber,)),
 //                             builder: (ctx)=>PopSessionBox(),
                            );
                          }),
@@ -125,7 +136,7 @@ class _ScatterGram extends State {
 
                          showDialog(
                            context: context,
-                           builder: (ctx)=>PopSessionBox('湿度传感器3','11111',Icon(Icons.explore,color: Colors.amber,)),
+                           builder: (ctx)=>PopSessionBox('湿度传感器3',[get[36],get[33]],[get[30]],Icon(Icons.explore,color: Colors.amber,)),
 //                             builder: (ctx)=>PopSessionBox(),
                          );
                        })),
@@ -134,19 +145,19 @@ class _ScatterGram extends State {
                            child: FancyButton4(onPressed: (){
                          showDialog(
                            context: context,
-                           builder: (ctx)=>PopSessionBox('湿度传感器4','11111',Icon(Icons.explore,color: Colors.amber,)),
+                           builder: (ctx)=>PopSessionBox('湿度传感器4',[get[45],get[42]],[get[39]],Icon(Icons.explore,color: Colors.amber,)),
 //                             builder: (ctx)=>PopSessionBox(),
                          );
                        })),
                        Container(
-                           padding: EdgeInsets.fromLTRB(0, 0, 10, 20),
-                           child: FancyButton5(onPressed: (){
-                         showDialog(
-                           context: context,
-                           builder: (ctx)=>PopSessionBox('湿度传感器5','11111',Icon(Icons.explore,color: Colors.amber,)),
+                           padding: EdgeInsets.fromLTRB(0, 0, 20, 80),
+                           child: FancyButton4(onPressed: (){
+                             showDialog(
+                               context: context,
+                               builder: (ctx)=>PopSessionBox('湿度传感器5',[get[54],get[51]],[get[48]],Icon(Icons.explore,color: Colors.amber,)),
 //                             builder: (ctx)=>PopSessionBox(),
-                         );
-                       })),
+                             );
+                           })),
                      ],
                    )
 
@@ -651,4 +662,105 @@ class _PulseAnimatorState extends State<PulseAnimator>
       child: widget.child,
     );
   }
+}
+Map get={};
+void _getSensorList() {
+  print("-------getData-------");
+  HttpRequest.getInstance().get(Urls.Home_url + "getSensorInfo", data: null,
+      successCallBack: (data) {
+        print("----data----");
+        print(data);
+
+        List responseJson = json.decode(data);
+        print("------responseData--------");
+//        print(responseJson.first['id']);
+//        print(responseJson.first['sensorValue']);
+//        print(responseJson[0]['id']);
+        //风速
+        get[0]=responseJson[0]['sensorValue'];
+        get[1]=responseJson[0]['colTime'];
+        get[2]=responseJson[0]['sensorParam'];
+        get[3]=responseJson[1]['sensorValue'];
+        get[4]=responseJson[1]['colTime'];
+        get[5]=responseJson[1]['sensorParam'];
+        get[6]=responseJson[2]['sensorValue'];
+        get[7]=responseJson[2]['colTime'];
+        get[8]=responseJson[2]['sensorParam'];
+        get[9]=responseJson[3]['sensorValue'];
+        get[10]=responseJson[3]['colTime'];
+        get[11]=responseJson[3]['sensorParam'];
+
+        //湿度
+        get[12]=responseJson[4]['sensorValue'];
+        get[13]=responseJson[4]['colTime'];
+        get[14]=responseJson[4]['sensorParam'];
+        get[15]=responseJson[5]['sensorValue'];
+        get[16]=responseJson[5]['colTime'];
+        get[17]=responseJson[5]['sensorParam'];
+        get[18]=responseJson[6]['sensorValue'];
+        get[19]=responseJson[6]['colTime'];
+        get[20]=responseJson[6]['sensorParam'];
+        get[21]=responseJson[7]['sensorValue'];
+        get[22]=responseJson[7]['colTime'];
+        get[23]=responseJson[7]['sensorParam'];
+        get[24]=responseJson[8]['sensorValue'];
+        get[25]=responseJson[8]['colTime'];
+        get[26]=responseJson[8]['sensorParam'];
+        get[27]=responseJson[9]['sensorValue'];
+        get[28]=responseJson[9]['colTime'];
+        get[29]=responseJson[9]['sensorParam'];
+        get[30]=responseJson[10]['sensorValue'];
+        get[31]=responseJson[10]['colTime'];
+        get[32]=responseJson[10]['sensorParam'];
+        get[33]=responseJson[11]['sensorValue'];
+        get[34]=responseJson[11]['colTime'];
+        get[35]=responseJson[11]['sensorParam'];
+        get[36]=responseJson[12]['sensorValue'];
+        get[37]=responseJson[12]['colTime'];
+        get[38]=responseJson[12]['sensorParam'];
+        get[39]=responseJson[13]['sensorValue'];
+        get[40]=responseJson[13]['colTime'];
+        get[41]=responseJson[13]['sensorParam'];
+        get[42]=responseJson[14]['sensorValue'];
+        get[43]=responseJson[14]['colTime'];
+        get[44]=responseJson[14]['sensorParam'];
+        get[45]=responseJson[15]['sensorValue'];
+        get[46]=responseJson[15]['colTime'];
+        get[47]=responseJson[15]['sensorParam'];
+        get[48]=responseJson[16]['sensorValue'];
+        get[49]=responseJson[16]['colTime'];
+        get[50]=responseJson[16]['sensorParam'];
+        get[51]=responseJson[17]['sensorValue'];
+        get[52]=responseJson[17]['colTime'];
+        get[53]=responseJson[17]['sensorParam'];
+        get[54]=responseJson[18]['sensorValue'];
+//
+//        int i;
+//        for( i=0;i<responseJson.length;i++){
+//          get[i]=responseJson[i]['id'];
+//          get[i+1]=responseJson[i]['sensorValue'];
+//          get[i+2]=responseJson[i]['colTime'];
+//        }
+
+        print(get[0]);
+        print(get[1]);
+        print(get[2]);
+        print(get[3]);
+        print(get[4]);
+        print(get[5]);
+        print(get[6]);
+        print(get[7]);
+        print(get[8]);
+        print(get[9]);
+        print(get[10]);
+        print(get[11]);
+        return get;
+//        print(get[4]);
+//
+//        setState(() {
+//          _sensorList.addAll(cardbeanList);
+//        });
+      });
+
+
 }

@@ -1,8 +1,14 @@
 import 'dart:convert';
+import 'package:earthsite/bean/sensor_entity.dart';
+
 import 'home/components/dash_line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'home/components/home_scattergram.dart';
+import 'package:earthsite/constants/Urls.dart';
+import 'package:earthsite/utils/HttpRequest.dart';
+import 'package:flutter_easyrefresh/easy_refresh.dart';
+import 'package:dio/dio.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,6 +16,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<SensorEntity> _sensorList=List();
+
+
+//  @override
+//  void initState() {
+//    super.initState();
+//    _getSensorList();
+//  }
   @override
   Widget build(BuildContext context){
     var stack=new Stack(
@@ -65,7 +79,24 @@ class _HomePageState extends State<HomePage> {
                       children: <Widget>[
 //                        getOriginWidget(),
 //                        getContentWidget(),
-//                          FancyButton(onPressed: (){}),
+//                          RaisedButton(
+//                            child: Text("测试"),
+//                            onPressed: () async{
+////                              _getSensorList();
+////                              var res=await HttpRequest.instance.get(Urls.Home_url+ "/getSensorInfo");
+////
+////                              String body=res.body;
+////                              //解析json数据
+////                              var json = jsonDecode(body);
+////                              print(json);
+////                              try {
+////                                Response response = await Dio().get("http://192.168.0.103:9090/settingId");
+////                                print(response);
+////                              } catch (e) {
+////                                print(e);
+////                              }
+//                            },
+//                          )
 //                        getDTUWidget(),
 //                        getSensorWidget(),
 //                        getNetWidget(),
@@ -421,3 +452,96 @@ Widget getDashedWidget(){
     );
 }
 }
+//void _getSensorList() {
+//  print("-------getData-------");
+//  HttpRequest.getInstance().get(Urls.Home_url + "getSensorInfo", data: null,
+//      successCallBack: (data) {
+//        Map<String, dynamic> dataJson = json.decode(data);
+//        List responseJson = json.decode(json.encode(dataJson["rows"]));
+//        print("------responseData--------");
+//        print(responseJson);
+//        List<SensorEntity> cardbeanList =
+//        responseJson.map((m) => new SensorEntity.fromJson(m)).toList();
+//        setState(() {
+//          _sensorList.addAll(cardbeanList);
+//        });
+//
+//        print("22222222");
+//        print(cardbeanList);
+//        }, errorCallBack: (code, msg) {});
+//
+//}
+
+//void _getSensorList() {
+//  print("-------getData-------");
+//  HttpRequest.getInstance().get(Urls.Home_url + "getSensorInfo", data: null,
+//      successCallBack: (data) {
+//        print("----data----");
+//        print(data);
+//
+//        List responseJson = json.decode(data);
+//        print("------responseData--------");
+////        print(responseJson.first['id']);
+////        print(responseJson.first['sensorValue']);
+////        print(responseJson[0]['id']);
+//
+//        Map get={};
+//        get[0]=responseJson[0]['id'];
+//        get[1]=responseJson[0]['sensorValue'];
+//        get[2]=responseJson[0]['colTime'];
+//        get[3]=responseJson[0]['sensorParam'];
+//        get[4]=responseJson[1]['id'];
+//        get[5]=responseJson[1]['sensorValue'];
+//        get[6]=responseJson[1]['colTime'];
+//        get[7]=responseJson[1]['sensorParam'];
+//        get[8]=responseJson[2]['id'];
+//        get[9]=responseJson[2]['sensorValue'];
+//        get[10]=responseJson[2]['colTime'];
+//        get[11]=responseJson[2]['sensorParam'];
+//        get[12]=responseJson[3]['id'];
+//        get[13]=responseJson[3]['sensorValue'];
+//        get[14]=responseJson[3]['colTime'];
+//        get[15]=responseJson[3]['sensorParam'];
+////
+////        int i;
+////        for( i=0;i<responseJson.length;i++){
+////          get[i]=responseJson[i]['id'];
+////          get[i+1]=responseJson[i]['sensorValue'];
+////          get[i+2]=responseJson[i]['colTime'];
+////        }
+//
+//        print(get[0]);
+//        print(get[1]);
+//        print(get[2]);
+//        print(get[3]);
+//        print(get[4]);
+//        print(get[5]);
+//        print(get[6]);
+//        print(get[7]);
+//        print(get[8]);
+//        print(get[9]);
+//        print(get[10]);
+//        print(get[11]);
+////        print(get[4]);
+////
+////        setState(() {
+////          _sensorList.addAll(cardbeanList);
+////        });
+//      });
+//
+//}
+
+
+//class GetSensorList extends StatefulWidget {
+//  @override
+//  _GetSensorListState createState() => _GetSensorListState();
+//}
+//
+//class _GetSensorListState extends State<GetSensorList> {
+//  @override
+//  Widget build(BuildContext context) {
+//    return FancyButton1(
+//    );
+//  }
+//}
+

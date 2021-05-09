@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 class PopSessionBox extends AlertDialog{
 
-  PopSessionBox(String name,String message,Icon icon):
+  PopSessionBox(String name,List<dynamic> message,List<dynamic> thirty,Icon icon):
       super(
         title: Container(
 
@@ -39,13 +39,90 @@ class PopSessionBox extends AlertDialog{
 //      titleTextStyle: TextStyle(color: Colors.black87, fontSize: 16),
       titlePadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
         content: new SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(85, 0, 0, 0),
+//          padding: EdgeInsets.fromLTRB(85, 0, 0, 0),
           child: new ListBody(
             children: [
-              Text(message),
-              Text(message),
-              Text(message),
-              Text(message),
+              Row(
+                children: [
+                  Container(
+//                    color: Colors.lightBlue,
+                    width: 70 ,
+                    height: 70,
+                    padding: EdgeInsets.all(10),
+                    child: CircleAvatar(
+                        backgroundImage: new AssetImage("assets/images/home/fengsu.jpg")
+                    ),
+                  ),
+                  Container(
+                    color: Colors.amber,
+                    width: 150 ,
+                    child: ListTile(
+                      title: Text("(5cm)湿度值："),
+                      subtitle: Text(
+                        message[0],
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Container(
+//                    color: Colors.lightBlue,
+                    width: 70 ,
+                    height: 70,
+                    padding: EdgeInsets.all(10),
+                    child: CircleAvatar(
+                        backgroundImage: new AssetImage("assets/images/home/fengsu.jpg")
+                    ),
+                  ),
+                  Container(
+                    color: Colors.amber,
+                    width: 150 ,
+                    child: ListTile(
+                      title: Text("(15cm)湿度值："),
+                      subtitle: Text(
+                        message[1],
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Container(
+//                    color: Colors.lightBlue,
+                    width: 70 ,
+                    height: 70,
+                    padding: EdgeInsets.all(10),
+                    child: CircleAvatar(
+                        backgroundImage: new AssetImage("assets/images/home/fengsu.jpg")
+                    ),
+                  ),
+                  Container(
+                    color: Colors.amber,
+                    width: 150 ,
+                    child: ListTile(
+                      title: Text("(30cm)湿度值："),
+                      subtitle: Text(
+                        thirty[0],
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+
+//              Text(message),
+//              Text(message),
+//              Text(message),
+//              Text(message),
 //          new FlatButton(
 //              onPressed: (){
 //                Navigator.of(context).pop();
