@@ -21,8 +21,8 @@ class _DisplayPageState extends State<DisplayPage> {
       ),
       body:Column(
         children: [
-          ChartWidget(true,'风速传感器',null,false),
-          ChartWidget(true,'湿度传感器',null,false),
+          ChartWidget(true,'风速传感器',null),
+          ChartWidget(true,'湿度传感器',null),
         ],
       ) ,
     );

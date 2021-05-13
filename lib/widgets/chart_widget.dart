@@ -11,31 +11,28 @@ class ChartWidget extends StatefulWidget {
   bool isButton; //判断是否需要跳转
   String Title; //表头
   String sensorId; //传入传感器Id
-  bool isH;
 
   ChartWidget(
     this.isButton,
     this.Title,
     this.sensorId,
-    this.isH,
   );
 
   @override
   _ChartWidgetState createState() =>
-      _ChartWidgetState(isButton, Title, sensorId, isH);
+      _ChartWidgetState(isButton, Title, sensorId);
 }
 
 class _ChartWidgetState extends State<ChartWidget> {
   bool isButton;
   String Title;
   String sensorId;
-  bool isH;
+
 
   _ChartWidgetState(
     this.isButton,
     this.Title,
     this.sensorId,
-    this.isH,
   );
 
   void Page() {
