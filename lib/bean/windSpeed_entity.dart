@@ -4,10 +4,6 @@ class WindSpeedEntity {
   double y;
   String type;
   int x;
-  String WindSpeed1;
-  String WindSpeed2;
-  String WindSpeed3;
-  String WindSpeed4;
 
   WindSpeedEntity({
     String deviceId,
@@ -15,10 +11,6 @@ class WindSpeedEntity {
     double y,
     String type,
     int x,
-    String WindSpeed1,
-    String WindSpeed2,
-    String WindSpeed3,
-    String WindSpeed4,
   });
 
   WindSpeedEntity.fromJson(List<dynamic> json) {
@@ -41,14 +33,5 @@ class WindSpeedEntity {
       x = ((hour + 8) * 6 + min / 10).toInt();
     }
 
-    if (deviceId == "FSGW01DTU0302000100") {
-      WindSpeed1 = deviceId;
-    }else if (deviceId == "FSGW01DTU0302000200") {
-      WindSpeed2 = deviceId;
-    }else if (deviceId == "FSGW01DTU0402010100") {
-      WindSpeed3 = deviceId;
-    }else if (deviceId == "FSGW01DTU0402010200") {
-      WindSpeed4 = deviceId;
-    }
   }
 }

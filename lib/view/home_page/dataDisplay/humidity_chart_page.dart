@@ -8,7 +8,7 @@ class HumidityChartPage extends StatefulWidget {
   final int type;
 
   @override
-  _HumidityChartPageState createState() => _HumidityChartPageState(0);
+  _HumidityChartPageState createState() => _HumidityChartPageState(type);
 }
 
 class _HumidityChartPageState extends State<HumidityChartPage>

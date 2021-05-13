@@ -12,7 +12,7 @@ class HumidityPage extends StatefulWidget {
   HumidityPage(this.current);
 
   @override
-  _HumidityPageState createState() => _HumidityPageState(0);
+  _HumidityPageState createState() => _HumidityPageState(current);
 }
 
 class _HumidityPageState extends State<HumidityPage>
